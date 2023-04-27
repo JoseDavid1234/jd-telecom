@@ -1,0 +1,53 @@
+.contacto {
+  display: flex;
+  align-items: end;
+  justify-content: end ;
+  height: 40px ;
+  font-family: "poppins";
+  font-weight: 400;
+}
+
+
+.contacto a {
+  color: #33cc99 !important;
+}
+
+.segundo-nav {
+  font-family: "poppins";
+  font-weight: 400;
+  background-color: #0873d4 !important;
+  border: none !important;
+}
+
+.segundo-nav a {
+  color: white !important;
+}
+
+.ul-segundo-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 200px;
+}
+
+.bloque {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+}
+
+.imagen-logo {
+  width: 200px;
+}
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px; /* Distancia desde abajo */
+  right: 20px; /* Distancia desde la derecha */
+  z-index: 9999; /* Asegura que el botón esté en la parte superior */
+  /* Agrega otros estilos según tus preferencias */
+}
+
+.whatsapp-button img {
+  width: 100px;
+}

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - JDTelecomunicaciones</title>
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/JDTelecomunicaciones.styles.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/css/layout.css" />
+  <link rel="stylesheet" href="~/css/index.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/&#64splidejs/splide@4.1.4/dist/css/splide.min.css">
+</head>
+
+<body>
+  <div class="contacto">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Contáctenos:</a>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">947198838 -
+      923854963</a>
+  </div>
+  <header class="sticky-top">
+
+    <nav
+      class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow segundo-nav sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+          <ul class="navbar-nav flex-grow-1 ul-segundo-nav">
+            <li class="nav-item">
+              <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img class="imagen-logo"
+                  src="/img/logo-jd-blanco.png" alt=""></a>
+            </li>
+            <div class="bloque">
+              <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Inicio">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Planes">Planes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Planes">Cobertura</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="">Contacto</a>
+              </li>
+            </div>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+  <main role="main" class="pb-3">
+    @RenderBody()
+    <a href="https://wa.me/+51991471172" target="_blank" class="whatsapp-button">
+      <img src="/img/wsp.png" alt="WhatsApp" />
+    </a>
+  </main>
+
+  <footer class="border-top footer text-muted">
+    <div class="container">
+      &copy; 2023 - JDTelecomunicaciones - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+  </footer>
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="~/js/site.js" asp-append-version="true"></script>
+  <script src="~/js/index.js"></script>
+  <script src="
+https://cdn.jsdelivr.net/npm/&#64splidejs/splide@4.1.4/dist/js/splide.min.js
+"></script>
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
