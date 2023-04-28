@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="~/css/layout.css" />
   <link rel="stylesheet" href="~/css/index.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/&#64splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -24,31 +28,26 @@
     <nav
       class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow segundo-nav sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"></a>
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="imagen-logo"
+            src="/img/logo-jd-blanco.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-          <ul class="navbar-nav flex-grow-1 ul-segundo-nav">
+          <ul class="navbar-nav flex-grow-1 ul-segundo-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><img class="imagen-logo"
-                  src="/img/logo-jd-blanco.png" alt=""></a>
+              <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Inicio">Inicio</a>
             </li>
-            <div class="bloque">
-              <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Inicio">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Planes">Planes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Planes">Cobertura</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="">Contacto</a>
-              </li>
-            </div>
+            <li class="nav-item">
+              <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Planes">Planes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Planes">Cobertura</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" asp-area="" asp-controller="Home" asp-action="">Contacto</a>
+            </li>
 
           </ul>
         </div>

@@ -26,14 +26,11 @@
 .ul-segundo-nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0px 200px;
+  justify-content: end;
 }
 
-.bloque {
-  display: flex;
-  justify-content: space-between;
-  width: 450px;
+.ul-segundo-nav li{
+  padding: 0 20px;
 }
 
 .imagen-logo {
@@ -50,4 +47,14 @@
 
 .whatsapp-button img {
   width: 100px;
+}
+
+@media(max-width: 768px){
+  .whatsapp-button {
+    bottom: 5px !important; /* Distancia desde abajo */
+    right: -10px !important; /* Distancia desde la derecha */
+  }
+  .footer{
+    text-align: center;
+  }
 }
