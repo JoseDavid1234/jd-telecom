@@ -10,11 +10,12 @@
   <link rel="stylesheet" href="~/JDTelecomunicaciones.styles.css" asp-append-version="true" />
   <link rel="stylesheet" href="~/css/layout.css" />
   <link rel="stylesheet" href="~/css/index.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/&#64splidejs/splide@4.1.4/dist/css/splide.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
 </head>
 
 <body>
@@ -63,6 +64,31 @@
 
   <footer class="border-top footer text-muted">
 
+    <div class="footer-personalizado">
+      <div class="logo">
+        <img src="~/img/logo-jd-blanco.png" alt="">
+      </div>
+
+      <div class="info-bloque">
+        <div class="bloque">
+          <h3>Menú</h3>
+          <a href="">Holagfdgfdgfgdfdg</a>
+          <br>
+          <a href="">Hola</a>
+          <br>
+          <a href="">Hola</a>
+          <br>
+          <a href="">Hola</a>
+        </div>
+        <div class="bloque">
+          <h3>Legal</h3>
+        </div>
+        <div class="bloque">
+          <h3>Contáctanos</h3>
+        </div>
+      </div>
+
+    </div>
 
     <div class="container">
       &copy; 2023 - JDTelecomunicaciones - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -73,9 +99,8 @@
 
   <script src="~/js/site.js" asp-append-version="true"></script>
   <script src="~/js/index.js"></script>
-  <script src="
-https://cdn.jsdelivr.net/npm/&#64splidejs/splide@4.1.4/dist/js/splide.min.js
-"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
   @await RenderSectionAsync("Scripts", required: false)
 </body>
 
