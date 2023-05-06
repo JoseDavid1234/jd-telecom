@@ -109,3 +109,16 @@
   margin: 0;
   line-height: 35px;
 }
+
+@media (max-width:768px){
+  .footer-personalizado{
+    height: auto;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px 0;
+  }
+  .footer-personalizado .info-bloque{
+    flex-direction: column;
+    gap: 50px;
+  }
+}

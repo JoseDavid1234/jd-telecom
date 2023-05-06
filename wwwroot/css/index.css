@@ -136,8 +136,8 @@ h3 {
     color: #000 !important; /* Cambia el color según sea necesario */
     background-color: #d5d5d5;
     opacity: 0.4;
-    width: 80px !important;
-    height: 80px !important;
+    width: 70px !important;
+    height: 70px !important;
     border-radius: 50%;
     font-weight: 700;
   }
@@ -149,11 +149,13 @@ h3 {
 /* Ajustes para pantallas con una anchura máxima de 768px (típicamente dispositivos móviles) */
 @media (max-width: 768px) {
   .swiper-container {
-    
     height: 200px;
   }
   .banda-planes img{
     width: 300px !important;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    display: none !important;
   }
 }
 
@@ -196,6 +198,22 @@ h3 {
   align-items: center;
   justify-content: space-around;
   height: 500px;
-  width: 1200px;
-  
+  width: 60%;
+}
+
+@media (max-width: 768px) {
+  .beneficios .cartas{
+    flex-direction: column;
+    height: auto;
+  }
+  .beneficios{
+    height: auto;
+    padding: 50px 0;
+  }
+  .beneficios .carta{
+    margin-top: 100px;
+  }
+  .banda{
+    height: 100px;
+  }
 }
