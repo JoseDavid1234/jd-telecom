@@ -200,6 +200,9 @@ h3 {
   height: 500px;
   width: 60%;
 }
+.cobertura{
+  padding: 100px 0;
+}
 
 @media (max-width: 768px) {
   .beneficios .cartas{
@@ -215,5 +218,8 @@ h3 {
   }
   .banda{
     height: 100px;
+  }
+  .cobertura iframe{
+    width: auto;
   }
 }
