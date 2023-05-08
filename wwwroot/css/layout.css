@@ -40,13 +40,13 @@
 .whatsapp-button {
   position: fixed;
   bottom: 20px; /* Distancia desde abajo */
-  right: 20px; /* Distancia desde la derecha */
+  right: 0px; /* Distancia desde la derecha */
   z-index: 9999; /* Asegura que el botón esté en la parte superior */
   /* Agrega otros estilos según tus preferencias */
 }
 
 .whatsapp-button img {
-  width: 100px;
+  width: 150px;
 }
 
 @media(max-width: 768px){
