@@ -228,4 +228,8 @@ h3 {
   .cobertura iframe{
     width: auto;
   }
+  .planes img{
+    width: 100% !important;
+  }
 }
+
