@@ -231,5 +231,19 @@ h3 {
   .planes img{
     width: 100% !important;
   }
+  .cascara-contactanos{
+    width: 300px;
+  }
+}
+
+.contactanos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cascara-contactanos{
+  width: 500px;
 }
 

@@ -1,5 +1,10 @@
+using JDTelecomunicaciones.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(Environment.GetEnvironmentVariable("CONECTION_STRING")));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
