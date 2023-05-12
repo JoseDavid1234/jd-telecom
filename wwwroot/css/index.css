@@ -227,17 +227,39 @@
   padding: 100px 0;
 }
 
-
-
 .contactanos{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 }
 
 .cascara-contactanos{
-  width: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 900px;
+  height: 500px;
+  border: 5px dotted black;
+  box-shadow: 0 0 10px black;
+  border-radius: 10px;
+}
+
+.bloque-contactanos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.bloque-contactanos img{
+  width: 300px;
+}
+
+.bloque-contactanos form{
+  width: 450px;
 }
 
 @media (max-width: 768px) {
@@ -249,8 +271,12 @@
   }
   .cascara-contactanos{
     width: 300px;
+    height: 400px;
   }
   .contactanos{
     width: auto;
+  }
+  .contactanos img{
+    display: none;
   }
 }
