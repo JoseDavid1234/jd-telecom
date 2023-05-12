@@ -28,5 +28,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #ffffff;
   overflow-x: hidden;
-  padding-bottom: 570px;
+  padding-bottom: 350px;
+}
+
+@media (max-width:768px) {
+  body{
+    padding-bottom: 650px;
+  }
 }
