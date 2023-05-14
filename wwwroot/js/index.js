@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     spaceBetween: 10,
     loop: true, // Habilita el loop
     autoplay: {
-      delay: 3000, // Cambia el slide cada 3 segundos
+      delay: 5000, // Cambia el slide cada 3 segundos
       disableOnInteraction: false, // Continúa el autoplay después de interactuar con el carrusel
     },
     navigation: {
