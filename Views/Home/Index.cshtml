@@ -9,7 +9,8 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <img src="/img/carousel-1.jpg" alt="">
+        <img src="/img/carrusel-1.jpg" alt="">
+        <div class="btn-1" onclick='sendWsp("Deseo saber más sobre el servicio.")'></div>
       </div>
       <div class="swiper-slide">
         <img src="/img/carousel-2.jpg" alt="">
@@ -34,11 +35,12 @@
   <div class="planes" id="planes">
     <h1>DUOS (Internet + Cable)</h1>
     <br>
-    <div class="banda-planes">
-      <img src="~/img/plancd-1.png" alt="">
-      <img src="~/img/plancd-2.png" alt="">
-      <img src="~/img/plancd-3.png" alt="">
-    </div>
+    <section class="cards">
+      <div class="card plan-20 animated" onclick='sendWsp("Deseo saber más acerca del plan Básico")'></div>
+      <div class="card plan-30 animated" onclick='sendWsp("Deseo saber más acerca del plan Estándar")'></div>
+      <div class="card plan-50 animated" onclick='sendWsp("Deseo saber más acerca del plan Premium")'></div>
+    </section>
+    <style class="hover"></style>
     <br>
     <br>
   </div>
