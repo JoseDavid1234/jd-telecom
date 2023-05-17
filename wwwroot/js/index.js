@@ -21,7 +21,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   formularioContacto.addEventListener("submit", function (e) {
     e.preventDefault(); // Detiene el envío normal del formulario
-
+    Swal.fire({
+      title: 'Enviando',
+      text: 'Tu mensaje está siendo enviado...',
+      showConfirmButton: false,
+      onBeforeOpen: () => {
+        Swal.showLoading()
+      }
+    });
     // Supongamos que tienes una función enviarFormulario() que envía los datos del formulario y devuelve una promesa
     enviarFormulario(new FormData(formularioContacto)).then((respuesta) => {
       // Suponemos que la función enviarFormulario() resuelve la promesa con un objeto que tiene una propiedad "exitoso" si el envío fue exitoso
