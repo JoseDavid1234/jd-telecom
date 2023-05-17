@@ -31,7 +31,6 @@
     <h1>Estamos mejorando la página...</h1>
   </div>
 
-
   <div class="planes" id="planes">
     <h1>DUOS (Internet + Cable)</h1>
     <br>
@@ -44,7 +43,6 @@
     <br>
     <br>
   </div>
-
   <div class="beneficios">
     <h1>Por qué deberías escogernos</h1>
     <div class="cartas">
@@ -67,6 +65,7 @@
   </div>
 
   <div class="cobertura" id="cobertura">
+    <h1>Nuestra zona de corbertura</h1>
     <iframe src="https://www.google.com/maps/d/embed?mid=1bt4MSj3JECmkRa-byJSYNU3lF9tELWo&ehbc=2E312F" width="1000"
       height="500"></iframe>
   </div>
@@ -80,13 +79,14 @@
         <form id="formulario-contacto" method="post" asp-action="EnviarFormulario" asp-controller="Home">
           <div class="form-group">
             <label asp-for="DNI"></label>
-            <input asp-for="DNI" class="form-control" pattern="^\d{8}$" title="El DNI debe ser de 8 dígitos." />
+            <input asp-for="DNI" class="form-control" pattern="^\d{8}$" title="El DNI debe ser de 8 dígitos."
+              required />
             <span asp-validation-for="DNI" class="text-danger"></span>
           </div>
           <div class="form-group">
             <label asp-for="NumeroTelefono"></label>
             <input asp-for="NumeroTelefono" class="form-control" pattern="^\d{9}$"
-              title="El número de teléfono debe ser de 9 dígitos." />
+              title="El número de teléfono debe ser de 9 dígitos." required />
             <span asp-validation-for="NumeroTelefono" class="text-danger"></span>
           </div>
           <div class="form-group">

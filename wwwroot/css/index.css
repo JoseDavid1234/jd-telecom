@@ -69,7 +69,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0;
+  padding: 100px 0;
 }
 
 .planes h1 {
@@ -196,7 +196,11 @@
   flex-wrap: wrap;
 }
 .cobertura{
-  padding: 100px 0;
+  padding-top: 150px;
+}
+
+.cobertura h1{
+  margin-bottom: 20px;
 }
 
 .contactanos{
@@ -204,7 +208,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+  padding-top: 150px;
 }
 
 .cascara-contactanos{
