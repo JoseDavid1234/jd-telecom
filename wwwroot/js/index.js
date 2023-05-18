@@ -61,8 +61,13 @@ var x;
 var $cards = $(".card");
 var $style = $(".hover");
 
+var isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+console.log(isMobile);
+
+if(!isMobile){
 $cards
-  .on("mousemove touchmove", function(e) { 
+  .on("mousemove", function(e) { 
     // normalise touch/mouse
     var pos = [e.offsetX,e.offsetY];
     e.preventDefault();
@@ -115,10 +120,12 @@ $cards
       $card.addClass("animated");
     },2500);
   });
+}
 
 
-  function sendWsp(texto){
-    var encodedText = encodeURIComponent(texto); // codificar el texto para que pueda ser parte de una URL
-    var url = "https://wa.me/+51991471172?text=" + encodedText;
-    window.open(url, '_blank'); // abrir la URL en una nueva pestaña
+
+function sendWsp(texto){
+  var encodedText = encodeURIComponent(texto); // codificar el texto para que pueda ser parte de una URL
+  var url = "https://wa.me/+51991471172?text=" + encodedText;
+  window.open(url, '_blank'); // abrir la URL en una nueva pestaña
 }
