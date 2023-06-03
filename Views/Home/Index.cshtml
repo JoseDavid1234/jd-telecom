@@ -1,7 +1,7 @@
 ﻿@model MensajeContacto
 
 @{
-  ViewData["Title"] = "Home Page";
+  ViewData["Title"] = "Inicio";
 }
 
 <div class="container-index text-center">
@@ -10,7 +10,8 @@
     <div class="box-flyer">
       <p class="texto-t1">¿Estás listo para vivir <br> la experiencia de la <br> mejor conexión a <br> internet?</p>
       <p class="texto-t2">No pierdas más tiempo y disfruta <br> de la fibra óptica que necesitas.</p>
-      <button class="boton-contactanos">Contáctanos</button>
+      <button class="boton-contactanos"
+        onclick="sendWsp('Me gustaría adquirir el servicio de internet por favor.')">Contáctanos</button>
     </div>
 
     <img src="~/img/Cabecera.png" alt="cabecera">

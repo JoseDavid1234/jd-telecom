@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="~/JDTelecomunicaciones.styles.css" asp-append-version="true" />
   <link rel="stylesheet" href="~/css/layout.css" />
   <link rel="stylesheet" href="~/css/index.css" />
+  <link rel="stylesheet" href="~/css/index-cobertura.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -20,6 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link href="./img/faviconito.png" rel="icon" type="image/png" />
+
 
 </head>
 <!-- Google tag (gtag.js) -->
@@ -38,9 +40,9 @@
   </div>
   <header>
     <div class="navbar"></div>
-    <a href="#" class="enlace">Planes</a>
-    <a href="#" class="enlace">Cobertura</a>
-    <a href="#" class="enlace">Soporte Técnico</a>
+    <a asp-controller="Home" asp-action="Index" class="enlace">Inicio</a>
+    <a asp-controller="Cobertura" asp-action="Index" class="enlace">Cobertura</a>
+    <a href="#" onclick="sendWsp('Necesito soporte técnico')" class="enlace">Soporte Técnico</a>
     <img class="imagen" src="ruta/a/imagen.jpg">
   </header>
   <main role="main">
