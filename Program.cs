@@ -1,5 +1,8 @@
 using JDTelecomunicaciones.Data;
 using Microsoft.EntityFrameworkCore;
+using DotNetEnv;
+
+Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 

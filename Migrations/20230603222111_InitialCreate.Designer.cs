@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JDTelecomunicaciones.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230510175618_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230603222111_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,20 +33,33 @@ namespace JDTelecomunicaciones.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("AutorizoPublicidad")
+                        .HasColumnType("boolean")
+                        .HasColumnName("autorizo_publicidad");
+
+                    b.Property<string>("CorreoElectronico")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("correo_electronico");
+
                     b.Property<string>("DNI")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("dni");
 
-                    b.Property<string>("Mensaje")
+                    b.Property<string>("NombreCompleto")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("mensaje");
+                        .HasColumnName("nombre_completo");
 
                     b.Property<string>("NumeroTelefono")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("numero_telefono");
+
+                    b.Property<bool>("PoliticasPrivacidad")
+                        .HasColumnType("boolean")
+                        .HasColumnName("politicas_privacidad");
 
                     b.HasKey("Id");
 

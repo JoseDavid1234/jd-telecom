@@ -24,16 +24,9 @@ html {
 body {
   width: 100%;
   height: auto;
-  margin-bottom: 60px;
   font-family: "poppins";
   /* font-weight: 900; */
   background-color: #ffffff;
   overflow-x: hidden;
-  padding-bottom: 350px;
-}
-
-@media (max-width:768px) {
-  body{
-    padding-bottom: 650px;
-  }
+  margin-bottom: -200px;
 }

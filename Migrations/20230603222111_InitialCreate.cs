@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JDTelecomunicaciones.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,9 +17,12 @@ namespace JDTelecomunicaciones.Migrations
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nombre_completo = table.Column<string>(type: "text", nullable: false),
                     dni = table.Column<string>(type: "text", nullable: false),
+                    correo_electronico = table.Column<string>(type: "text", nullable: false),
                     numero_telefono = table.Column<string>(type: "text", nullable: false),
-                    mensaje = table.Column<string>(type: "text", nullable: false)
+                    politicas_privacidad = table.Column<bool>(type: "boolean", nullable: false),
+                    autorizo_publicidad = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {

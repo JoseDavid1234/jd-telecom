@@ -6,99 +6,155 @@
 
 <div class="container-index text-center">
 
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="/img/carrusel-1.jpg" alt="">
-        <div class="btn-1" onclick='sendWsp("Deseo saber más sobre el servicio.")'></div>
-      </div>
-      <div class="swiper-slide">
-        <img src="/img/carousel-2.jpg" alt="">
-        <div class="btn-2" onclick='sendWsp("Deseo saber más sobre el servicio.")'></div>
-      </div>
-      <div class="swiper-slide">
-        <img src="/img/carousel-3.jpg" alt="">
-        <div class="btn-3" onclick='sendWsp("Me gustaría saber cuales son los planes disponibles.")'></div>
-      </div>
-      <!-- Agrega más slides según sea necesario -->
+  <div class="flyer">
+    <div class="box-flyer">
+      <p class="texto-t1">¿Estás listo para vivir <br> la experiencia de la <br> mejor conexión a <br> internet?</p>
+      <p class="texto-t2">No pierdas más tiempo y disfruta <br> de la fibra óptica que necesitas.</p>
+      <button class="boton-contactanos">Contáctanos</button>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-    <!-- Add Navigation -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+
+    <img src="~/img/Cabecera.png" alt="cabecera">
   </div>
 
-  <div class="banda">
-    <h1>Estamos mejorando la página...</h1>
-  </div>
+  <div class="cinta-cyan"></div>
 
   <div class="planes" id="planes">
-    <h1>DUOS (Internet + Cable)</h1>
-    <br>
-    <section class="cards">
-      <div class="card plan-20 animated" onclick='sendWsp("Deseo saber más acerca del plan Básico")'></div>
-      <div class="card plan-30 animated" onclick='sendWsp("Deseo saber más acerca del plan Estándar")'></div>
-      <div class="card plan-50 animated" onclick='sendWsp("Deseo saber más acerca del plan Premium")'></div>
-    </section>
-    <style class="hover"></style>
-    <br>
-    <br>
+    <p class="txt-3">Conoce nuestros planes 100% fibra Óptica</p>
+    <p class="txt-4">!Disfruta de la mejor conexión a internet y al mejor precio!</p>
+    <div class="linea"></div>
+    <p class="txt-5">Elije el internet de JD y vive la experiencia de una conexión a internet, estable,<br>sin cortes y
+      con la misma
+      velocidad en subida y descarga.</p>
+    <p class="txt-6">Elije el plan que más se ajuste a tí</p>
+
+    <div class="bloque-flex mt-2">
+      <img onclick='sendWsp("Deseo el plan Básico")' src="~/img/plan-basico.png">
+      <img onclick='sendWsp("Deseo el plan Estándar")' src="~/img/plan-estandar.png">
+      <img onclick='sendWsp("Deseo el plan Premium")' src="~/img/plan-premium.png">
+      <img onclick='sendWsp("Deseo el plan Super")' src="~/img/plan-super.png">
+    </div>
   </div>
   <div class="beneficios">
-    <h1>¿Por qué deberías escogernos?</h1>
-    <div class="cartas">
-      <div class="carta">
-        <img src="~/img/beneficios-1.jpg" alt="Tolerancia a fallos">
-        <h2>99% Tolerancia a fallos</h2>
-        <p>Con nuestro servicio, puedes estar seguro de que tu negocio nunca se detendrá.</p>
+
+    <p class="txt-7">¿Por qué deberías escogernos?</p>
+    <div class="bloque-beneficios">
+
+      <div class="parte-texto">
+        <ul class="nav-beneficios txt-8">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#" id="porque-link">Porque</a>
+            <div class="nav-underline"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="cerca-link">Estamos cerca</a>
+          </li>
+        </ul>
+        <p id="beneficio-texto" class="txt-9 mt-5">
+          Contamos con una red de Fibra Óptica que te permite <br> disfrutar de una conexión a internet segura y de
+          acuerdo a <br> tus necesidades. <br><br> No estás amarrado a contratos esclavizantes. <br><br> Te brindamos
+          soporte técnico con soluciones eficientes. <br><br> Siepmre estamos a la vanguardia e innovando para brindarte
+          <br> el mejor servicio. <br><br> Además de proomciones exclusivas si realizas tus pagos a <br> tiempo.
+        </p>
       </div>
-      <div class="carta">
-        <img src="~/img/beneficios-2.jpg" alt="Infraestructura">
-        <h2>La mejor infraestructura</h2>
-        <p>Nuestra infraestructura de vanguardia garantiza que puedas operar con la mayor eficiencia. </p>
-      </div>
-      <div class="carta">
-        <img src="~/img/beneficios-3.jpg" alt="Soporte 24/7">
-        <h2>Soporte 24/7</h2>
-        <p>Nuestro equipo de soporte está disponible las 24 horas del día, los 7 días de la semana.</p>
-      </div>
+      <img src="~/img/beneficios.png" alt="modelo">
     </div>
   </div>
 
-  <div class="cobertura" id="cobertura">
-    <h1>Nuestra zona de corbertura</h1>
-    <iframe src="https://www.google.com/maps/d/embed?mid=1bt4MSj3JECmkRa-byJSYNU3lF9tELWo&ehbc=2E312F" width="1000"
-      height="500"></iframe>
+
+
+  <div class="tarjetas-contactanos">
+    <img src="~/img/asesor.png" alt="asesor">
+    <img src="~/img/chat.png" alt="chat">
   </div>
 
-  <div class="contactanos" id="contactanos">
+  <div class="footer-personalizado">
+    <div class="logo">
+      <img src="~/img/logo-jd-blanco.png" alt="">
+    </div>
+    <div class="bloque-links">
+      <div class="division-vertical">
+      </div>
+      <div class="info-bloque txt-10">
+        <a href="#">Planes</a>
+        <br>
+        <a href="#">Cobertura</a>
+        <br>
+        <a href="#">Preguntas Frecuentes</a>
+        <br>
+        <a href="#">Contacto</a>
+        <br><br><br>
+        <a href="#">Reclamos</a>
+        <br>
+        <a href="#">Libro de Reclamaciones</a>
+        <br>
+        <a href="#">Formas de pago</a>
+        <br><br><br>
+        <a href="#">Contáctanos</a>
+        <br>
+        <a href="#">+51 947-198838</a>
+        <br>
+        <a href="#">+51 923-854963</a>
+        <br>
+        <a href="#">jdcommerce17@gmail.com</a>
+      </div>
+    </div>
 
-    <div class="cascara-contactanos">
-      <h2>Deja tus datos y nos contactaremos contigo</h2>
-      <div class="bloque-contactanos">
-        <img src="~/img/chica-signal-2.png" alt="">
-        <form id="formulario-contacto" method="post" asp-action="EnviarFormulario" asp-controller="Home">
-          <div class="form-group">
-            <label asp-for="DNI"></label>
-            <input asp-for="DNI" class="form-control" pattern="^\d{8}$" title="El DNI debe ser de 8 dígitos."
-              required />
-            <span asp-validation-for="DNI" class="text-danger"></span>
-          </div>
-          <div class="form-group">
-            <label asp-for="NumeroTelefono"></label>
-            <input asp-for="NumeroTelefono" class="form-control" pattern="^\d{9}$"
-              title="El número de teléfono debe ser de 9 dígitos." required />
-            <span asp-validation-for="NumeroTelefono" class="text-danger"></span>
-          </div>
-          <div class="form-group">
-            <label asp-for="Mensaje"></label>
-            <textarea asp-for="Mensaje" class="form-control" rows="5"></textarea>
-            <span asp-validation-for="Mensaje" class="text-danger"></span>
-          </div>
-          <br>
-          <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
+
+    <div class="contactanos" id="contactanos">
+
+      <div class="cascara-contactanos">
+        <p class="txt-11">Si no deseas llamarnos o escribirnos al WhatsApp,<br> dejanos tus datos
+          y nos contactaremos contigo.</p>
+        <div class="bloque-contactanos">
+          <form id="formulario-contacto" method="post" asp-action="EnviarFormulario" asp-controller="Home">
+            <div class="form-group txt-12">
+              <label asp-for="NombreCompleto"></label>
+              <input asp-for="NombreCompleto" class="form-control" required />
+              <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2 txt-12">
+              <label asp-for="DNI"></label>
+              <input asp-for="DNI" class="form-control" pattern="^\d{8}$" title="El DNI debe ser de 8 dígitos."
+                required />
+              <span asp-validation-for="DNI" class="text-danger"></span>
+            </div>
+            <div class="form-row row mt-2 txt-12">
+              <div class="form-group col-md-6">
+                <label asp-for="CorreoElectronico"></label>
+                <input asp-for="CorreoElectronico" type="email" class="form-control" required />
+                <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
+              </div>
+              <div class="form-group col-md-6">
+                <label asp-for="NumeroTelefono"></label>
+                <input asp-for="NumeroTelefono" class="form-control" pattern="^\d{9}$"
+                  title="El número de teléfono debe ser de 9 dígitos." required />
+                <span asp-validation-for="NumeroTelefono" class="text-danger"></span>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-9 txt-13">
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="PoliticasPrivacidad" asp-for="PoliticasPrivacidad"
+                    required>
+                  <label class="form-check-label" for="PoliticasPrivacidad">He leído y aceptado las políticas de
+                    privacidad</label>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="AutorizoPublicidad" asp-for="AutorizoPublicidad">
+                  <label class="form-check-label" for="AutorizoPublicidad">Autorizo el envío de publicidad e información
+                    comercial</label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-enviar col-md-3">Enviar</button>
+            </div>
+
+          </form>
+        </div>
+
+
       </div>
 
     </div>

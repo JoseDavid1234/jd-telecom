@@ -15,7 +15,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link href="./img/faviconito.png" rel="icon" type="image/png" />
 
 </head>
@@ -30,43 +33,17 @@
 </script>
 
 <body>
-  <div class="contacto">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Contáctenos:</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">947198838 -
-      923854963</a>
+  <div class="cinta-cyan">
+
   </div>
-  <header class="sticky-top">
-
-    <nav
-      class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow segundo-nav sticky-top">
-      <div class="container-fluid">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="imagen-logo"
-            src="/img/logo-jd-blanco.png" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-          <ul class="navbar-nav flex-grow-1 ul-segundo-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#planes">Planes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#cobertura">Cobertura</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contactanos">Contáctanos</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
+  <header>
+    <div class="navbar"></div>
+    <a href="#" class="enlace">Planes</a>
+    <a href="#" class="enlace">Cobertura</a>
+    <a href="#" class="enlace">Soporte Técnico</a>
+    <img class="imagen" src="ruta/a/imagen.jpg">
   </header>
-  <main role="main" class="pb-3">
+  <main role="main">
     @RenderBody()
     <a href="https://wa.me/+51991471172?text=Estimados%20señores%20de%20JDTelecomunicaciones,%0A%0AMe%20gustaría%20obtener%20más%20información%20acerca%20de%20los%20diferentes%20planes%20y%20paquetes%20que%20ofrecen,%20así%20como%20de%20los%20costos%20asociados%20a%20cada%20uno%20de%20ellos.%20Además,%20me%20interesa%20conocer%20los%20detalles%20técnicos,%20tales%20como%20la%20velocidad%20de%20conexión,%20el%20tipo%20de%20tecnología%20que%20utilizan%20y%20si%20ofrecen%20servicios%20de%20soporte%20técnico.%0A%0AAgradezco%20de%20antemano%20su%20atención%20y%20quedo%20a%20la%20espera%20de%20su%20respuesta%20para%20poder%20tomar%20una%20decisión%20informada%20sobre%20mi%20conexión%20a%20internet.%0A%0ASaludos%20cordiales."
       target="_blank" class="whatsapp-button">
@@ -74,46 +51,7 @@
     </a>
   </main>
 
-  <footer class="border-top footer text-muted">
 
-    <div class="footer-personalizado">
-      <div class="logo">
-        <img src="~/img/logo-jd-blanco.png" alt="">
-      </div>
-
-      <div class="info-bloque">
-        <div class="bloque">
-          <h3>Menú</h3>
-          <a href="#">Planes</a>
-          <br>
-          <a href="#">Cobertura</a>
-          <br>
-          <a href="#">Preguntas Frecuentes</a>
-          <br>
-          <a href="#">Contacto</a>
-        </div>
-        <div class="bloque">
-          <h3>Legal</h3>
-          <a href="#">Reclamos</a>
-          <br>
-          <a href="#">Libro de Reclamaciones</a>
-          <br>
-          <a href="#">Formas de pago</a>
-        </div>
-        <div class="bloque">
-          <h3>Contáctanos</h3>
-          <a href="#">📞 (+51) 991471172</a>
-          <br>
-          <a href="#">✉ jdcommerce17@gmail.com</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="container">
-      &copy; 2023 - JDTelecomunicaciones
-    </div>
-  </footer>
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 

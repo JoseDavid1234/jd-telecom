@@ -1,21 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    loop: true, // Habilita el loop
-    autoplay: {
-      delay: 5000, // Cambia el slide cada 3 segundos
-      disableOnInteraction: false, // Continúa el autoplay después de interactuar con el carrusel
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
 
   const formularioContacto = document.getElementById("formulario-contacto");
 
@@ -56,76 +39,36 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 });
-//cards
-var x;
-var $cards = $(".card");
-var $style = $(".hover");
-
-var isMobile = window.matchMedia("(max-width: 767px)").matches;
-
-console.log(isMobile);
-
-if(!isMobile){
-$cards
-  .on("mousemove", function(e) { 
-    // normalise touch/mouse
-    var pos = [e.offsetX,e.offsetY];
-    e.preventDefault();
-    if ( e.type === "touchmove" ) {
-      pos = [ e.touches[0].clientX, e.touches[0].clientY ];
-    }
-    var $card = $(this);
-    // math for mouse position
-    var l = pos[0];
-    var t = pos[1];
-    var h = $card.height();
-    var w = $card.width();
-    var px = Math.abs(Math.floor(100 / w * l)-100);
-    var py = Math.abs(Math.floor(100 / h * t)-100);
-    var pa = (50-px)+(50-py);
-    // math for gradient / background positions
-    var lp = (50+(px - 50)/1.5);
-    var tp = (50+(py - 50)/1.5);
-    var px_spark = (50+(px - 50)/7);
-    var py_spark = (50+(py - 50)/7);
-    var p_opc = 20+(Math.abs(pa)*1.5);
-    var ty = ((tp - 50)/2) * -1;
-    var tx = ((lp - 50)/1.5) * .5;
-    // css to apply for active card
-    var grad_pos = `background-position: ${lp}% ${tp}%;`
-    var sprk_pos = `background-position: ${px_spark}% ${py_spark}%;`
-    var opc = `opacity: ${p_opc/100};`
-    var tf = `transform: rotateX(${ty}deg) rotateY(${tx}deg)`
-    // need to use a <style> tag for psuedo elements
-    var style = `
-      .card:hover:before { ${grad_pos} }  /* gradient */
-      .card:hover:after { ${sprk_pos} ${opc} }   /* sparkles */ 
-    `
-    console.log(grad_pos);
-    // set / apply css class and style
-    $cards.removeClass("active");
-    $card.removeClass("animated");
-    $card.attr( "style", tf );
-    $style.html(style);
-    if ( e.type === "touchmove" ) {
-      return false; 
-    }
-    clearTimeout(x);
-  }).on("mouseout touchend touchcancel", function() {
-    // remove css, apply custom animation on end
-    var $card = $(this);
-    $style.html("");
-    $card.removeAttr("style");
-    x = setTimeout(function() {
-      $card.addClass("animated");
-    },2500);
-  });
-}
-
-
 
 function sendWsp(texto){
   var encodedText = encodeURIComponent(texto); // codificar el texto para que pueda ser parte de una URL
   var url = "https://wa.me/+51991471172?text=" + encodedText;
   window.open(url, '_blank'); // abrir la URL en una nueva pestaña
 }
+
+$(document).ready(function () {
+  $("#porque-link").click(function (e) {
+    e.preventDefault();
+    $("#beneficio-texto").html(`Contamos con una red de Fibra Óptica que te permite <br> disfrutar de una conexión a internet segura y de
+          acuerdo a <br> tus necesidades. <br><br> No estás amarrado a contratos esclavizantes. <br><br> Te brindamos
+          soporte técnico con soluciones eficientes. <br><br> Siepmre estamos a la vanguardia e innovando para brindarte
+          <br> el mejor servicio. <br><br> Además de proomciones exclusivas si realizas tus pagos a <br> tiempo.`);
+  });
+  $("#cerca-link").click(function (e) {
+    e.preventDefault();
+    $("#beneficio-texto").html(`En JD Telecomunicaciones, estamos comprometidos con acercar la tecnología a ti. Como una de las principales empresas de internet por fibra óptica en la región, entendemos la importancia de tener una conexión rápida y fiable en todo momento. <br><br>Estamos cerca, siempre disponibles para asegurar que tu experiencia en línea sea la mejor. Nuestra proximidad nos permite entender y satisfacer tus necesidades de manera rápida y eficaz.`);
+
+  });
+});
+
+$(document).ready(function () {
+  $(".nav-link").click(function (e) {
+    e.preventDefault();
+    $(".nav-link").removeClass("active");
+    $(this).addClass("active");
+    const position = $(this).position();
+    const width = $(this).outerWidth();
+    $(".nav-underline").css({ left: position.left, width: width });
+  });
+  $("#porque-link").click();
+});
