@@ -28,12 +28,42 @@
       velocidad en subida y descarga.</p>
     <p class="txt-6">Elije el plan que más se ajuste a tí</p>
 
-    <div class="bloque-flex mt-2">
-      <img onclick='sendWsp("Deseo el plan Básico")' src="~/img/plan-basico.png">
-      <img onclick='sendWsp("Deseo el plan Estándar")' src="~/img/plan-estandar.png">
-      <img onclick='sendWsp("Deseo el plan Premium")' src="~/img/plan-premium.png">
-      <img onclick='sendWsp("Deseo el plan Super")' src="~/img/plan-super.png">
+    @* <div id="plan-carousel" class="bloque-flex">
+    <img onclick='sendWsp("Deseo el plan Básico")' src="~/img/plan-basico.png">
+    <img onclick='sendWsp("Deseo el plan Estándar")' src="~/img/plan-estandar.png">
+    <img onclick='sendWsp("Deseo el plan Premium")' src="~/img/plan-premium.png">
+    <img onclick='sendWsp("Deseo el plan Super")' src="~/img/plan-super.png">
+
+    </div> *@
+
+    <div class="caja">
+      <div class="swiper-container">
+
+        <!-- Wrapper for slides -->
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img onclick='sendWsp("Deseo el plan Básico")' src="~/img/plan-basico.png">
+          </div>
+          <div class="swiper-slide">
+            <img onclick='sendWsp("Deseo el plan Estándar")' src="~/img/plan-estandar.png">
+          </div>
+          <div class="swiper-slide">
+            <img onclick='sendWsp("Deseo el plan Premium")' src="~/img/plan-premium.png">
+          </div>
+          <div class="swiper-slide">
+            <img onclick='sendWsp("Deseo el plan Super")' src="~/img/plan-super.png">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Add Navigation -->
+      <div class="swiper-button-next-unique"><img src="~/img/asesor.png" width="100%" alt="Next"></div>
+      <div class="swiper-button-prev-unique"><img src="~/img/asesor.png" width="100%" alt="Prev"></div>
     </div>
+
+
+
   </div>
   <div class="beneficios">
 
@@ -54,7 +84,7 @@
         <p id="beneficio-texto" class="txt-9 mt-5">
           Contamos con una red de Fibra Óptica que te permite <br> disfrutar de una conexión a internet segura y de
           acuerdo a <br> tus necesidades. <br><br> No estás amarrado a contratos esclavizantes. <br><br> Te brindamos
-          soporte técnico con soluciones eficientes. <br><br> Siepmre estamos a la vanguardia e innovando para brindarte
+          soporte técnico con soluciones eficientes. <br><br> Siempre estamos a la vanguardia e innovando para brindarte
           <br> el mejor servicio. <br><br> Además de proomciones exclusivas si realizas tus pagos a <br> tiempo.
         </p>
       </div>
@@ -74,30 +104,40 @@
       <img src="~/img/logo-jd-blanco.png" alt="">
     </div>
     <div class="bloque-links">
-      <div class="division-vertical">
+      <div class="division-vertical dv-1">
       </div>
       <div class="info-bloque txt-10">
-        <a href="#">Planes</a>
-        <br>
-        <a href="#">Cobertura</a>
-        <br>
-        <a href="#">Preguntas Frecuentes</a>
-        <br>
-        <a href="#">Contacto</a>
+
+        <div>
+          <a href="#">Planes</a>
+          <br>
+          <a href="#">Cobertura</a>
+          <br>
+          <a href="#">Preguntas Frecuentes</a>
+          <br>
+          <a href="#">Contacto</a>
+        </div>
         <br><br><br>
-        <a href="#">Reclamos</a>
-        <br>
-        <a href="#">Libro de Reclamaciones</a>
-        <br>
-        <a href="#">Formas de pago</a>
+        <div>
+          <a href="#">Reclamos</a>
+          <br>
+          <a href="#">Libro de Reclamaciones</a>
+          <br>
+          <a href="#">Formas de pago</a>
+        </div>
         <br><br><br>
-        <a href="#">Contáctanos</a>
-        <br>
-        <a href="#">+51 947-198838</a>
-        <br>
-        <a href="#">+51 923-854963</a>
-        <br>
-        <a href="#">jdcommerce17@gmail.com</a>
+        <div class="bloque-3">
+          <a href="#">Contáctanos</a>
+          <br>
+          <a href="#">+51 947-198838</a>
+          <br>
+          <a href="#">+51 923-854963</a>
+          <br>
+          <a href="#">jdcommerce17@gmail.com</a>
+        </div>
+
+      </div>
+      <div class="division-vertical dv-2">
       </div>
     </div>
 
@@ -126,7 +166,7 @@
                 <input asp-for="CorreoElectronico" type="email" class="form-control" required />
                 <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-6 nt-contactanos">
                 <label asp-for="NumeroTelefono"></label>
                 <input asp-for="NumeroTelefono" class="form-control" pattern="^\d{9}$"
                   title="El número de teléfono debe ser de 9 dígitos." required />

@@ -3,15 +3,6 @@
   background-color: #00ffff;
 }
 
-.segundo-nav {
-  font-family: "montserrat";
-  font-weight: 500;
-  border: none !important;
-  height: 120px;
-  z-index: 10 !important;
-  font-size: larger;
-}
-
 .imagen-logo {
   width: 200px;
 }
@@ -30,11 +21,28 @@
 
 @media(max-width: 768px){
   .whatsapp-button {
-    bottom: 5px !important; /* Distancia desde abajo */
-    right: -10px !important; /* Distancia desde la derecha */
+    bottom: 10px !important; /* Distancia desde abajo */
+    right: 10px !important; /* Distancia desde la derecha */
+    
+  }
+  .whatsapp-button img{
+    width: 60px;
   }
   .footer{
     text-align: center;
   }
+  
+}
+
+.navbar {
+  height: 120px;
+  background-color: white !important;
+  padding: 0 100px;
+}
+
+.nav-link {
+  color: #0061ff !important;
+  font-family: "poppins";
+  font-size: large;
 }
 

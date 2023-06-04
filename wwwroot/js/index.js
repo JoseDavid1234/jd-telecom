@@ -1,5 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      // Responsive breakpoints
+      breakpoints: {
+        // when window width is >= 768px
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        }
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-unique',
+        prevEl: '.swiper-button-prev-unique',
+      },
+      loop: true
+    });
+
   const formularioContacto = document.getElementById("formulario-contacto");
 
   formularioContacto.addEventListener("submit", function (e) {
@@ -72,3 +94,15 @@ $(document).ready(function () {
   });
   $("#porque-link").click();
 });
+
+function carouselSlide(direction) {
+  const carousel = document.getElementById('plan-carousel');
+  const scrollAmount = 200; // Adjust this value as needed
+
+  if (direction === 'left') {
+    carousel.scrollLeft -= scrollAmount;
+  } else if (direction === 'right') {
+    carousel.scrollLeft += scrollAmount;
+  }
+}
+

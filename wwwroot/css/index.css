@@ -137,7 +137,6 @@
   justify-content: space-around;
 }
 
-
 .beneficios {
   background-color: #f4f4f4;
   background-size: cover; /* Ajustar el tamaño de la imagen para cubrir todo el contenedor */
@@ -195,13 +194,14 @@
   display: flex;
   height: 420px;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   padding-top: 10px;
 }
 
 .tarjetas-contactanos img{
-  object-fit: none;
-  margin: 0 20px;
+  object-fit: contain;
+  margin: 0 30px;
+  width: 500px;
 }
 
 @media (max-width: 768px) {
@@ -210,42 +210,7 @@
   }
 }
 
-header .navbar {
-  position: relative;
-  height: 120px;
-  width: 100%;
-  background-color: white;
-  z-index: 10;
-}
 
-header .enlace {
-  position: absolute;
-  top: 70px;
-  color: #0061ff;
-  text-decoration: none;
-  z-index: 30;
-  font-family: "poppins";
-  font-size: large;
-}
-
-header .enlace:nth-of-type(1) {
-  right: 500px;
-}
-
-header .enlace:nth-of-type(2) {
-  right: 330px;
-}
-
-header .enlace:nth-of-type(3) {
-  right: 100px;
-}
-
-header .imagen {
-  position: absolute;
-  top: 70px;
-  left: 100px;
-  z-index: 20;
-}
 
 .footer-personalizado{
   background-color: #2a3d64;
@@ -308,15 +273,11 @@ header .imagen {
 }
 
 @media (max-width:768px){
-  .footer-personalizado{
-    height: auto;
-    flex-direction: column;
-    gap: 50px;
-    padding: 20px 0;
+  .flyer{
+    display: none;
   }
-  .footer-personalizado .info-bloque{
-    flex-direction: column;
-    gap: 50px;
+  .planes{
+    padding: 20px;
   }
 }
 
@@ -420,4 +381,158 @@ header .imagen {
   font-family: "poppins";
   font-weight: 400;
   font-size: 10px;
+}
+
+.swiper-container{
+  margin-top: 10px;
+  width: 1200px;
+}
+
+.swiper-wrapper{
+  display: flex !important;
+  align-items: flex-end !important;
+}
+
+.caja {
+  position: relative;
+}
+
+.dv-2{
+  display: none;
+}
+
+@media (max-width:768px) {
+  .swiper-button-prev-unique{
+    width: 50px; /* Ajusta el tamaño según tus necesidades */
+    height: 50px; /* Ajusta el tamaño según tus necesidades */
+    position: absolute !important;
+    top: 50% !important;
+    left: 0 !important;
+    z-index: 100 !important;
+  }
+  .swiper-button-next-unique{
+    width: 50px; /* Ajusta el tamaño según tus necesidades */
+    height: 50px; /* Ajusta el tamaño según tus necesidades */
+    position: absolute !important;
+    top: 50% !important;
+    right: 0 !important;
+    z-index: 100 !important;
+  }
+
+  .swiper-container{
+    width: 100vw;
+  }
+
+  .beneficios{
+    flex-direction: column;
+  }
+
+  .beneficios .txt-7{
+    margin-left: 0;
+  }
+  .bloque-beneficios{
+    flex-direction: column;
+    height: auto;
+    width: 90vw;
+  }
+  .bloque-beneficios .parte-texto{
+    padding: 10px;
+    text-align: start;
+    height: 100%;
+  }
+
+  .beneficios img{
+    margin-top: 0px;
+    object-fit: contain;
+    z-index: 10;
+    width: 90vw;
+    margin-top: -20px;
+  }
+  .tarjetas-contactanos{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+  }
+
+  .tarjetas-contactanos img{
+    object-fit: contain;
+    width: 90vw;
+    margin: 10px;
+  }
+
+  .planes .linea{
+    width: 300px;
+  }
+
+  .footer-personalizado{
+    flex-direction: column-reverse;
+    height: 900px;
+    border-top: #0061ff 20px solid;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0px;
+    padding:0px;
+  }
+
+  .footer-personalizado .bloque-links{
+    display: flex;
+    align-items: center;
+  }
+
+  .contactanos{
+    color: white;
+    text-align: start;
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-enviar{
+    margin: 0 auto;
+  }
+
+  .info-bloque{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 40px;
+    
+  }
+
+  .info-bloque > div {
+    flex: 1 0 50%; /* Puede ocupar todo el espacio disponible, no encogerá y tiene una base de 50% del contenedor */
+  }
+  .division-vertical{
+    width: 90%;
+    height: 2px;
+    margin-right: 0px;
+  }
+
+  .bloque-links{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bloque-links .txt-10{
+    font-size: 12px;
+  }
+
+  .bloque-links .bloque-3{
+    margin-top: 20px;
+  }
+
+  .bloque-links .dv-1{
+    margin-bottom: 10px;
+  }
+  .bloque-links .dv-2{
+    margin-top: 10px;
+    display: block;
+  }
+  .nt-contactanos{
+    margin-top: 10px !important;
+  }
 }
