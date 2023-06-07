@@ -19,6 +19,16 @@
   width: 80px;
 }
 
+@media (min-width:769px){
+  #navbarNav a{
+    margin: 50px;
+  }
+  #navbarNav{
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 @media(max-width: 768px){
   .whatsapp-button {
     bottom: 10px !important; /* Distancia desde abajo */
@@ -31,13 +41,16 @@
   .footer{
     text-align: center;
   }
-  
+  .navbar {
+    height: auto !important;
+    background-color: white !important;
+    padding: 10px 10px !important;
+  }
 }
 
 .navbar {
   height: 120px;
   background-color: white !important;
-  padding: 0 100px;
 }
 
 .nav-link {
