@@ -3,4 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "poppins";
+  font-size: xx-large;
+  font-weight: 600;
 }
