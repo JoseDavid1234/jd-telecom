@@ -51,8 +51,22 @@ function draw() {
   }
 }
 
-function spin() {
+let isSpinning = false;
+
+function spin(local) {
+
+  if (isSpinning) {
+    return; // Ignore if the wheel is already spinning
+  }
+
+  isSpinning = true; // Set spinning to true
+
   wheel.speed = Math.random() * 0.5 + 0.1; // Random initial speed
+
+  if (local) {
+    // Emit spin event to server if this is a local spin
+    connection.invoke("Spin").catch(err => console.error(err));
+  }
 
   function animate() {
     wheel.rotation += wheel.speed;
@@ -62,6 +76,7 @@ function spin() {
       requestAnimationFrame(animate);
     } else {
       wheel.speed = 0; // Stop completely when slow enough
+      isSpinning = false; // Set spinning to false
     }
 
     draw();
