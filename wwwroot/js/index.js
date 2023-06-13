@@ -106,3 +106,26 @@ function carouselSlide(direction) {
   }
 }
 
+$(document).ready(function() {
+  var $navbar = $('#navbar');
+  var $cloneContainer = $('#cloneContainer');
+
+  $navbar.find('a').each(function() {
+    var $originalLink = $(this);
+    var $cloneLink = $originalLink.clone();
+
+    // Copia la posición y el tamaño del enlace original al enlace clonado
+    var offset = $originalLink.offset();
+
+    $cloneLink.css({
+      position: 'absolute',
+      top: offset.top,
+      left: offset.left,
+      width: $originalLink.outerWidth()+1,
+      height: $originalLink.outerHeight()
+    });
+    // Agrega el enlace clonado al contenedor de clones
+    $cloneContainer.append($cloneLink);
+  });
+  
+});

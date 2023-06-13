@@ -56,19 +56,6 @@
   color: #0E065A;
 }
 
-.image-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-  margin-bottom: 150px;
-}
-
-.image-container img {
-  width: 600px;
-}
-
 .container-index a {
   color: #1e3c72;
 }
@@ -271,24 +258,23 @@
   right: auto;
 }
 
-.flyer .responsive-image{
-    background-image: url('../img/Cabecera.png');
-    height: 779px;  /* o cualquier altura que necesites */
-    background-size: contain;  /* para que la imagen cubra todo el div */
-    background-position: center;  /* para centrar la imagen */
+.flyer-small{
+  display: none;
 }
 
-
-
 @media (max-width:768px){
-  .flyer .responsive-image{
-    height: 258px;
-    background-image: url('../img/cabecera_responsive.png');
-  }
   .flyer{
     margin-top: 0px;
     z-index: 20 !important;
     position: relative;
+  }
+
+  .flyer-grande{
+    display: none;
+  }
+
+  .flyer-small{
+    display: block;
   }
 
   .box-flyer{
@@ -408,10 +394,7 @@
   list-style: none;
 }
 
-.nav-link {
-  display: block;
-  padding: 0.5em 1em;
-}
+
 
 .footer-personalizado .txt-10{
   font-family: "poppins";

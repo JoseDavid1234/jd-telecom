@@ -8,11 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace JDTelecomunicaciones.Controllers
 {
-    public class Cobertura : Controller
+    public class CoberturaController : Controller
     {
-        private readonly ILogger<Cobertura> _logger;
+        private readonly ILogger<CoberturaController> _logger;
 
-        public Cobertura(ILogger<Cobertura> logger)
+        public CoberturaController(ILogger<CoberturaController> logger)
         {
             _logger = logger;
         }

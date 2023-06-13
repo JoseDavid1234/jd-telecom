@@ -46,6 +46,12 @@
     background-color: white !important;
     padding: 10px 10px !important;
   }
+  .navbar-nav li{
+    margin: 8px;
+  }
+  #cloneContainer{
+    display: none;
+  }
 }
 
 .navbar {
@@ -53,9 +59,22 @@
   background-color: white !important;
 }
 
-.nav-link {
-  color: #0061ff !important;
+
+.enlace{
+  text-decoration: none;
+  font-size: larger;
+  font-weight: 400;
   font-family: "poppins";
-  font-size: large;
 }
 
+#cloneContainer {
+  position: absolute;
+  top: 0;
+  z-index: 500;
+  pointer-events: none; /* Esta línea es importante, hace que los clics pasen a través del div */
+}
+
+#cloneContainer a {
+  pointer-events: all; /* Esta línea es importante, hace que los enlaces reciban clics */
+  opacity: 0;
+}
