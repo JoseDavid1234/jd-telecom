@@ -83,9 +83,11 @@ function spin(local) {
   }
 
   animate();
-
-  // Emit spin event to server
-    connection.invoke("Spin").catch(err => console.error(err));
 }
+
+// Listen for spin events
+connection.on("Spin", function () {
+  spin(false); // This is a remote spin, not a local one
+});
 
 draw();
