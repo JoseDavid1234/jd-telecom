@@ -1,6 +1,7 @@
 using JDTelecomunicaciones.Data;
 using Microsoft.EntityFrameworkCore;
 using DotNetEnv;
+using JDTelecomunicaciones.Hubs;
 
 Env.Load();
 
@@ -10,6 +11,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(Environment.GetEnvironmentVariable("CONECTION_STRING")));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add services to the container.
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -27,6 +31,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapHub<SpinHub>("/spinhub"); // Map the SignalR hub
 
 app.MapControllerRoute(
     name: "default",

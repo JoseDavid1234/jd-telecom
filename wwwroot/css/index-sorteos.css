@@ -1,0 +1,11 @@
+#roulette {
+  position: relative;
+  width: 800px;
+  height: 800px;
+}
+
+.sorteos-contenedor{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
