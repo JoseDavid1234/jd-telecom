@@ -62,8 +62,9 @@ function spin(local) {
   isSpinning = true; // Set spinning to true
 
   if (local) {
-    // Emit spin event to server if this is a local spin
-    connection.invoke("Spin").catch(err => console.error(err));
+    var speed = Math.random()*0.5+0.1;
+    wheel.speed = speed;
+    connection.invoke("Spin",speed).catch(err => console.error(err));
   }
 
   function animate() {
@@ -76,7 +77,6 @@ function spin(local) {
       wheel.speed = 0; // Stop completely when slow enough
       isSpinning = false; // Set spinning to false
     }
-
     draw();
   }
 
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
     // Supongamos que tienes una función enviarFormulario() que envía los datos del formulario y devuelve una promesa
-    enviarFormulario(new FormData(formularioContacto)).then((respuesta) => {
+    enviarFormularioSorteo(new FormData(formularioContacto)).then((respuesta) => {
       // Suponemos que la función enviarFormulario() resuelve la promesa con un objeto que tiene una propiedad "exitoso" si el envío fue exitoso
       if (respuesta.exitoso) {
         Swal.fire(
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  function enviarFormulario(formData) {
+  function enviarFormularioSorteo(formData) {
     // Este es solo un ejemplo y no funcionará en un entorno real.
     return fetch("/Sorteos/ProcessDni", {
       method: "POST",

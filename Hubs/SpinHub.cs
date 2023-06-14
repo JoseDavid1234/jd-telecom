@@ -14,11 +14,10 @@ namespace JDTelecomunicaciones.Hubs
       {
           _context = context;
       }
-      public async Task Spin()
+      public async Task Spin(double speed)
       {
         var clients= await _context.ContactMessages.ToListAsync();
         var random = new Random();
-        var speed = random.NextDouble()*0.5+0.1;
         await Clients.Others.SendAsync("Spin",clients,speed);
       }
   }
