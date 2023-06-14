@@ -17,10 +17,10 @@ const context = canvas.getContext("2d");
 
 const wheel = {
   radius: 400,
-  segments: ["* Cliente 1", "* Cliente 2", "* Cliente 3", "* Cliente 4", "* Cliente 5", "* Cliente 6", "* Cliente 7"],
+  segments: [],
   rotation: 0,
   speed: 0,
-  colors: ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#4B0082", "#8B00FF"], // Colors for the segments
+  colors: [], // Colors for the segments
 };
 
 function draw() {
@@ -61,8 +61,6 @@ function spin(local) {
 
   isSpinning = true; // Set spinning to true
 
-  wheel.speed = Math.random() * 0.5 + 0.1; // Random initial speed
-
   if (local) {
     // Emit spin event to server if this is a local spin
     connection.invoke("Spin").catch(err => console.error(err));
@@ -86,8 +84,89 @@ function spin(local) {
 }
 
 // Listen for spin events
-connection.on("Spin", function () {
+connection.on("Spin", function (clients,speed) {
+  wheel.segments=clients
+  wheel.speed=speed
   spin(false); // This is a remote spin, not a local one
 });
 
 draw();
+
+// Listen for clients updated events
+connection.on("ClientsUpdated", function (clients) {
+  // Update wheel segments with client names
+  wheel.segments = clients.map(client => client.nombreCompleto); // Assuming 'nombreCompleto' is a property of your client objects
+
+  // Optionally, update colors here
+  wheel.colors = clients.map(() => getRandomColor());
+
+  draw(); // Redraw the wheel
+});
+
+// When the page loads
+window.onload = function() {
+    // Get clients from server
+    fetch('/Sorteos/GetClients')
+    .then(response => response.json())
+    .then(clients => {
+        wheel.segments = clients.map(client => client.nombreCompleto); // Or client.name, or however you want to represent the client
+        wheel.colors = clients.map(() => getRandomColor()); // You need to implement getRandomColor
+        draw();
+    })
+    .catch(error => console.error('Error:', error));
+};
+
+function getRandomColor(){
+  var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  const formularioContacto = document.getElementById("formulario-sorteos");
+
+  formularioContacto.addEventListener("submit", function (e) {
+    e.preventDefault(); // Detiene el envío normal del formulario
+    Swal.fire({
+      title: 'Enviando',
+      text: 'Tu mensaje está siendo enviado...',
+      showConfirmButton: false,
+      onBeforeOpen: () => {
+        Swal.showLoading()
+      }
+    });
+    // Supongamos que tienes una función enviarFormulario() que envía los datos del formulario y devuelve una promesa
+    enviarFormulario(new FormData(formularioContacto)).then((respuesta) => {
+      // Suponemos que la función enviarFormulario() resuelve la promesa con un objeto que tiene una propiedad "exitoso" si el envío fue exitoso
+      if (respuesta.exitoso) {
+        Swal.fire(
+          'Enviado',
+          'Tu mensaje ha sido enviado exitosamente',
+          'success'
+        )
+      }else {
+        Swal.fire(
+          'Error',
+          'No encontramos tu dni',
+          'error'
+        );
+      }
+    });
+  });
+
+  function enviarFormulario(formData) {
+    // Este es solo un ejemplo y no funcionará en un entorno real.
+    return fetch("/Sorteos/ProcessDni", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+});
