@@ -573,3 +573,9 @@
     margin-top: 10px !important;
   }
 }
+
+.titulo-seo{
+  font-family: "poppins";
+  color: #0055dd;
+  font-weight: 600;
+}
