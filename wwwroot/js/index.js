@@ -71,7 +71,7 @@ function sendWsp(texto){
 $(document).ready(function () {
   $("#porque-link").click(function (e) {
     e.preventDefault();
-    $("#beneficio-texto").html(`Contamos con una red de Fibra Óptica que te permite disfrutar de una conexión a internet segura y de
+    $("#beneficio-texto").html(`En JD Telecomunicaciones, contamos con una red de Fibra Óptica que te permite disfrutar de una conexión a internet segura y de
           acuerdo a tus necesidades. <br><br> No estás amarrado a contratos esclavizantes. <br><br> Te brindamos
           soporte técnico con soluciones eficientes. <br><br> Siepmre estamos a la vanguardia e innovando para brindarte
           el mejor servicio. <br><br> Además de proomciones exclusivas si realizas tus pagos a tiempo.`);
