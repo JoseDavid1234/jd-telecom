@@ -1,7 +1,6 @@
 using JDTelecomunicaciones.Data;
 using Microsoft.EntityFrameworkCore;
 using DotNetEnv;
-using JDTelecomunicaciones.Hubs;
 
 Env.Load();
 
@@ -35,8 +34,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.MapHub<SpinHub>("/spinhub"); // Map the SignalR hub
 
 app.MapControllerRoute(
     name: "default",

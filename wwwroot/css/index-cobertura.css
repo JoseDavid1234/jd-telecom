@@ -4,6 +4,11 @@
   align-items: center;
   justify-content: center;
   font-family: "poppins";
-  font-size: xx-large;
-  font-weight: 600;
+  margin: 0px 300px;
+}
+
+@media (max-width: 768px) {
+  .cobertura{
+    margin: 0px 10px;
+  }
 }
