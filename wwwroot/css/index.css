@@ -191,12 +191,19 @@
   width: 500px;
 }
 
+.navbar-brand{
+  margin-left: 140px;
+}
+
 @media (max-width: 768px) {
+  .navbar-brand{
+    margin-left: 10px;
+  }
   .cobertura iframe{
     width: auto;
   }
-  .planes img{
-    width: 70%;
+  .swiper-container img{
+    width: 60%;
   }
 }
 
@@ -391,13 +398,14 @@
   background: #0061ff;
   transition: all 0.5s ease;
 }
+.navbar img{
+  width: 150px;
+}
 
 .nav-item {
   text-align: start;
   list-style: none;
 }
-
-
 
 .footer-personalizado .txt-10{
   font-family: "poppins";
@@ -463,6 +471,10 @@
     top: 50% !important;
     right: 0 !important;
     z-index: 100 !important;
+  }
+
+  .navbar img{
+    width: 100px;
   }
 
   .swiper-container{
