@@ -207,6 +207,10 @@
   }
 }
 
+#beneficio-texto{
+  text-align: justify;
+}
+
 .footer-personalizado{
   background-color: #2a3d64;
   display: flex;

@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function sendWsp(texto){
   var encodedText = encodeURIComponent(texto); // codificar el texto para que pueda ser parte de una URL
-  var url = "https://wa.me/+51991471172?text=" + encodedText;
+  var url = "https://wa.me/+51923854963?text=" + encodedText;
   window.open(url, '_blank'); // abrir la URL en una nueva pestaña
 }
 
