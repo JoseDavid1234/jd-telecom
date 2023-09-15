@@ -10,5 +10,11 @@ namespace JDTelecomunicaciones.Data
         }
 
         public DbSet<MensajeContacto> ContactMessages { get; set; }
+        public DbSet<Usuario> Usuarios {get;set;}
+        public DbSet<Tickets> Tickets {get;set;}
+        public DbSet<Persona> Personas {get;set;}
+        public DbSet<Promocion> Promociones {get;set;}
+        public DbSet<Recibos> Recibos {get;set;}
+    
     }
 }
