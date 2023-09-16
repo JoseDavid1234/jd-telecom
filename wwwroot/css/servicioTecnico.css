@@ -1,0 +1,23 @@
+
+/*.whatsappButton{
+    width: 50px;
+    height: 50px;
+}*/
+
+.whatsappButton{
+    display: inline-flex;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: #25D366;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.whatsappButton img{
+    width: 50px;
+    height: 50px;
+}

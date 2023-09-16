@@ -9,12 +9,12 @@ namespace JDTelecomunicaciones.Data
         {
         }
 
-        public DbSet<MensajeContacto> ContactMessages { get; set; }
-        public DbSet<Usuario> Usuarios {get;set;}
-        public DbSet<Tickets> Tickets {get;set;}
-        public DbSet<Persona> Personas {get;set;}
-        public DbSet<Promocion> Promociones {get;set;}
-        public DbSet<Recibos> Recibos {get;set;}
+        public DbSet<MensajeContacto> DB_ContactMessages { get; set; }
+        public DbSet<Usuario> DB_Usuarios {get;set;}
+        public DbSet<Tickets> DB_Tickets {get;set;}
+        public DbSet<Persona> DB_Personas {get;set;}
+        public DbSet<Promocion> DB_Promociones {get;set;}
+        public DbSet<Recibos> DB_Recibos {get;set;}
     
     }
 }

@@ -2,6 +2,7 @@ using JDTelecomunicaciones.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using DotNetEnv;
+using JDTelecomunicaciones.Services;
 
 Env.Load();
 
@@ -21,7 +22,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 //builder.Services.AddDat();
 //builder.Services.AddScoped<IUsuarioService,UsuarioServiceImplement>();
-//builder.Services.AddScoped<UsuarioServiceImplement>();
+builder.Services.AddScoped<TicketServiceImplement>();
+builder.Services.AddScoped<UsuarioServiceImplement>();
 //builder.Services.AddScoped<PersonaServiceImplement>();
 //builder.Services.AddScoped<ProductoServiceImplement>();
 //builder.Services.AddScoped<CategoriaServiceImplement>();
