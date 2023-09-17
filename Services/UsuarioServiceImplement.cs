@@ -17,8 +17,16 @@ namespace JDTelecomunicaciones.Services
         _context = context;
     }
     public async Task<Usuario> FindUserById(int id){
-        var usuario = await _context.DB_Usuarios.FindAsync(id);
-        return usuario;
+        try{
+            var usuario = await _context.DB_Usuarios
+            .Include(u => u.persona)
+            .FirstOrDefaultAsync(u => u.id_usuario == id);
+            
+            return usuario;
+        }catch(Exception e){
+            Console.WriteLine(e.Message);
+            return null;
+        }
     }
     public async Task<List<Usuario>> GetUsers(){
         var usuarios = await _context.DB_Usuarios.ToListAsync();

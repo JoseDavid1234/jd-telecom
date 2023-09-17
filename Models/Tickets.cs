@@ -18,11 +18,7 @@ namespace JDTelecomunicaciones.Models
         public string descripcion_ticket {get;set;}
         public string status_ticket {get;set;}
         public string fecha_ticket {get;set;}
-        
-        /*[Column("id_usuario")]
-        public int usuario_id {get;set;}
-        */
-        
+         
         [Column("id_usuario")]
         public Usuario usuario {get;set;}
     

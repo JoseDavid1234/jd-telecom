@@ -1,31 +1,30 @@
+@model JDTelecomunicaciones.Models.ModeloConListas<Usuario,Tickets>
 @{
     Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+    var tickets = Model.ModelosS.ToList();
+
+    var persona = Model.ModeloT.persona;
 }
 
 @section Styles{
     <link rel="stylesheet" href="~/css/servicioTecnico.css" asp-append-version="true" />
 }
-
-@model List<JDTelecomunicaciones.Models.Tickets>
-<section>
+<section class="TechServiceSection">
     <h1>SERVICIO TECNICO</h1>
         <a href="https://wa.me/+51991471172?text=Estimados%20se%C3%B1ores%20de%20JD%20Telecomunicaciones%2C%0AMe%20encuentro%20teniendo%20una%20falla%20t%C3%A9cnica%20relacionada%20a%20mis%20dispositivos%20de%20internet%20y%20me%20gustar%C3%ADa%20que%20me%20brinden%20atenci%C3%B3n%20t%C3%A9cnica%20inmediata.%0AAgradezco%20de%20antemano%20su%20atenci%C3%B3n%20y%20quedo%20a%20la%20espera%20de%20su%20respuesta." target="_blank" class="whatsappButton">
         <span>Solicitar ayuda tecnica inmediata</span><img src="/img/wsp.png" alt="WhatsApp" />
         </a>
     <form method="post" asp-action="EnviarTicket" asp-controller="Cliente">
-        <h1>Creacion de ticket de ayuda</h1>
         <div>
-            
-            <div>
                 <label>Nombres</label>
-                <input value="Marko Antonio" readonly/>
+                <input value="@persona.nombrePersona" readonly/>
             </div>
             <div>
                 <label>Apellidos</label>
-                <input value="Leon Gomez" readonly/>
+                <input value="@persona.apPatPersona @persona.apMatPersona" readonly/>
             </div>
         </div>
-        
+        <h1>Creacion de ticket de ayuda</h1>
         <div>
             <div> 
                 <label>Problema</label>
@@ -46,14 +45,22 @@
     <div>
         <h1>Lista de Tickets</h1>
         <div>
-            @foreach (var item in Model)
-            {
-                <div style="display: flex;background-color = blue">
-                    <label>@item.id_ticket</label>
-                    <label>@item.tipoProblematica_ticket</label>
-                    <label>@item.status_ticket</label>
-                </div>
+            @if(tickets.Count > 0){
+
+                @foreach (var item in tickets)
+                {
+                    <div style="display: flex;background-color = blue">
+                        <label>@item.id_ticket</label>
+                        <label>@item.tipoProblematica_ticket</label>
+                        <label>@item.status_ticket</label>
+                    </div>
+                }
+            }else{
+                <h1>No se encontraron tickets</h1>
             }
         </div>
+
+
+  <div>
     </div>
 </section>

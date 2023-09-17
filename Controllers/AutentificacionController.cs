@@ -84,6 +84,33 @@ namespace JDTelecomunicaciones.Controllers
             return View("Registrar");
         }
 
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register(string dni, string password,string confirmPassword,string Nombre,string apPaterno,string apMaterno,string correo,char sexo)
+        {   
+            try{  
+                if(password==confirmPassword){
+                    var persona = new Persona {nombrePersona= Nombre,apPatPersona=apPaterno,apMatPersona=apMaterno,dniPersona=dni,sexoPersona=sexo};
+                    var usuario = new Usuario {correo_usuario=correo,nombre_usuario=dni,contraseña_usuario=password,rol_usuario='C',persona=persona};
+                    await _usuarioService.AddUser(usuario);
+                }else{
+                    Console.WriteLine("Contraseña diferente");
+                }
+                
+                return View("IniciarSesion");
+
+            }catch(Exception ex){
+
+                Console.WriteLine(ex);
+                return RedirectToAction("Error","Home");
+            }
+
+
+        }
+
+
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

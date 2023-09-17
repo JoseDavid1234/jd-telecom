@@ -7,33 +7,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Internet por Fibra Óptica | JD Telecomunicaciones</title>
-  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-  <link rel="stylesheet" href="~/JDTelecomunicaciones.styles.css" asp-append-version="true" />
-  <link rel="stylesheet" href="~/css/layout.css" />
-  <link rel="stylesheet" href="~/css/index.css" />
+  <link rel="stylesheet" href="~/css/layoutCliente.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <link href="./img/jd-logo-azul.png" rel="icon" type="image/png" />
   @await RenderSectionAsync("Styles", required: false)
 </head>
 
 
 <body>
   <header>
-    <nav id="navbar" class="navbar navbar-expand-sm navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+    <nav id="navbar" class="navbar">
+      <div class="navbar_options" id="navbarNav">
+        <a class="BrandLogo"><img src="~/img/jd-logo-azul.png"/></a>
         <ul class="navbar-nav">
           @if(User.Identity.IsAuthenticated){
             <li class="nav-item">
@@ -46,15 +37,54 @@
           }
         </ul>
       </div>
+      <div class="movileNavBar">
+        <div class="movileNavBar_optionsHandler">
+          <a href="#" class="optionsHandler_optionsMobile">
+            <img src="~/img/HomeIconBlue.svg"/>
+            <label>Inicio</label>
+          </a>
+          <a class="optionsHandler_optionsMobile">
+            <img src="~/img/ServiciosIconBlue.svg"/>
+            <label>Mis Planes</label>
+          </a>
+          <a class="optionsHandler_optionsMobile">
+            <img src="~/img/TransactionsIconBlue.svg"/>
+            <label>Transacciones</label>
+          </a>
+          <a class="optionsHandler_optionsMobile">
+            <img src="~/img/TechServiceIconBlue.svg"/>
+            <label>Servicio Tecnico</label>
+          </a>
+        </div>
+      </div>
     </nav>
-    <div id="cloneContainer"></div>
   </header>
 
 
   <main role="main">
+    <section class="SideBarSection">
+      <div class="SideBarSection_optionsHandler">
+        <div class="optionsHandler_option">
+          <img src="~/img/HomeIcon.svg"/>
+          <label>Inicio</label>
+        </div>
+        <div  class="optionsHandler_option">
+          <img src="~/img/ServiciosIcon.svg"/>
+          <label>Mis Planes</label>
+        </div>
+        <div class="optionsHandler_option">
+          <img src="~/img/TransactionsIcon.svg"/>
+          <label>Transacciones</label>
+        </div>
+        <div class="optionsHandler_option">
+          <img src="~/img/TechServiceIcon.svg"/>
+          <label>Servicio Tecnico</label>
+        </div>
+      </div>
+    </section>
     @RenderBody()
   </main>
-
+  <footer>¡ACCEDE A NUESTROS MEJORES PLANES!</footer>
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 

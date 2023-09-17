@@ -1,0 +1,120 @@
+*{
+    font-family: "poppins";
+    margin: 0px;
+}
+
+body{
+    background: url(../img/BackgroundJDTel.png), lightgray 50% / cover no-repeat;
+    background-color: hsla(0, 0%, 83%, 0.5);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main{
+    display: flex;
+    height: 100vh;
+}
+
+footer{
+    display: flex;
+    height: 66px;
+    padding: 12px 18px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+    background-color: #0061FF;
+    color: #0FF;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.TechServiceSection{
+    width: 100%;
+}
+
+.movileNavBar{
+    display: none;
+}
+
+.movileNavBar_optionsHandler{
+    display: flex;
+    height: 100%;
+    overflow: auto;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 0.8rem;
+    color: #0061FF;
+}
+
+
+.optionsHandler_optionsMobile{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.optionsHandler_optionsMobile img{
+    width: 40px;
+}
+
+.navbar{
+    background-color: #f3f3f3;
+}
+.navbar_options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+}
+
+.BrandLogo img{
+    width: 80px;
+    height: 80px;
+}
+
+.SideBarSection{
+    background: #0061FF;
+    box-shadow: -3px -8px 6px 0px rgba(0, 0, 0, 0.25) inset;
+    max-width: 250px;
+    width: 30vw;
+    box-sizing: content-box;
+    padding: 10px;
+}
+
+
+.SideBarSection_optionsHandler{
+    display: flex;
+    flex-flow: column;
+    color: white;
+    font-weight: 600;
+    padding: 53px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.optionsHandler_option{
+    display: flex;
+    padding: 9px 10px;
+    align-items: center;
+    align-self: stretch;
+    justify-content: flex-start;
+    gap: 35px;
+}
+
+.optionsHandler_option:hover{
+    background-color: #009BEA;
+}
+
+@media(max-width:750px){
+    .movileNavBar{
+        display: block;
+    }
+    .SideBarSection{
+        display: none;
+    }
+}

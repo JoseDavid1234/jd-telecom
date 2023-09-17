@@ -1,1 +1,44 @@
+@{
+   Layout = "~/Views/Shared/_LayoutAutentificacion.cshtml";
+}
 <h1>Registrar HTML</h1>
+<form asp-action="register" asp-controller="Autentificacion" method="post">
+
+    <div>
+        <label>DNI</label>
+        <input name="dni"/>
+    </div>
+    <div>
+        <label>Contraseña</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <label>Confirmar contraseña</label>
+        <input type="password" name="confirmPassword"/>
+    </div>
+    <div>
+        <label>Correo Electronico</label>
+        <input type="email" name="correo"/>
+    </div>
+
+    <div>
+        <label>Nombre</label>
+        <input name="Nombre"/>
+    </div>
+    <div>
+        <label>Apellido Paterno</label>
+        <input name="apMaterno"/>
+    </div>
+    <div>
+        <label>Apellido Materno</label>
+        <input name="apPaterno"/>
+    </div>
+    <div>
+        <label>Sexo</label>
+        <select name="sexo">
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+        </select>
+    </div>
+    <button type="submit">Registrar</button>
+</form>

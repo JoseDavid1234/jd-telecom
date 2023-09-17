@@ -16,17 +16,14 @@ namespace JDTelecomunicaciones.Controllers
     [Route("[controller]")]
     public class ClienteController : Controller
     {
-        private readonly ILogger<ClienteController> _logger;
+
         private readonly TicketServiceImplement _ticketService;
         private readonly UsuarioServiceImplement _usuarioService;
-        private readonly ApplicationDbContext _context;
 
-        public ClienteController(ILogger<ClienteController> logger,TicketServiceImplement ticketService, ApplicationDbContext context,UsuarioServiceImplement usuarioService)
+        public ClienteController(TicketServiceImplement ticketService,UsuarioServiceImplement usuarioService)
         {
-            _logger = logger;
             _ticketService = ticketService;
             _usuarioService = usuarioService;
-            _context = context;
         }
         [Authorize(Roles ="C")]
         public IActionResult Index()
@@ -35,26 +32,36 @@ namespace JDTelecomunicaciones.Controllers
         }
         [Authorize(Roles ="C")]
         [HttpGet("ServicioTecnico")]
-        public IActionResult ServicioTecnico()
+        public async Task<IActionResult> ServicioTecnico()
         {
-            var tickets = _ticketService.GetTickets();
-            foreach(var item in tickets.Result){
-                Console.WriteLine(item.id_ticket + " " + item.tipoProblematica_ticket + " " + item.status_ticket);
-            }
-            return View("ServicioTecnico",tickets.Result);
+            var idUserClaim = User.FindFirst("idUser").Value;
+            int idUser = int.Parse(idUserClaim);
+
+            var miUsuario = await _usuarioService.FindUserById(idUser);
+            var tickets = await _ticketService.GetTicketsById(idUser);
+
+            Console.WriteLine(miUsuario.persona + " <-- AQUI HAY UNA PERSONA ");
+
+            var modeloConListas = new ModeloConListas<Usuario,Tickets>(miUsuario,tickets);
+
+            return View("ServicioTecnico",modeloConListas);
         }
         [Authorize(Roles ="C")]
         [HttpPost("EnviarTicket")]
         public async Task<IActionResult> EnviarTicket(string tipoProblematica,string descripcion){
             DateTime fechaActual = DateTime.Today;
             string fechaActualS = fechaActual.ToString("dd/MM/yyyy");
-            Console.WriteLine(fechaActualS);
-            var miUsuario = await _usuarioService.FindUserById(1);
+            var idUserClaim = User.FindFirst("idUser").Value;
+            int idUser = int.Parse(idUserClaim);
+            var miUsuario = await _usuarioService.FindUserById(idUser);
 
             var ticket = new Tickets{ tipoProblematica_ticket = tipoProblematica,descripcion_ticket = descripcion,status_ticket = "PENDIENTE",usuario =miUsuario ,fecha_ticket = fechaActualS};
             _ticketService.AddTickets(ticket);
             return RedirectToAction("ServicioTecnico");
         }
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
