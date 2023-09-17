@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using DotNetEnv;
 using JDTelecomunicaciones.Services;
+using JDTelecomunicaciones.Models;
 
 Env.Load();
 
@@ -24,6 +25,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //builder.Services.AddScoped<IUsuarioService,UsuarioServiceImplement>();
 builder.Services.AddScoped<TicketServiceImplement>();
 builder.Services.AddScoped<UsuarioServiceImplement>();
+builder.Services.AddScoped<PromocionServiceImplement>();
 //builder.Services.AddScoped<PersonaServiceImplement>();
 //builder.Services.AddScoped<ProductoServiceImplement>();
 //builder.Services.AddScoped<CategoriaServiceImplement>();
