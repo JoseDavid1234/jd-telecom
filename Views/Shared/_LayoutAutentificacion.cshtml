@@ -22,11 +22,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link href="./img/jd-logo-azul.png" rel="icon" type="image/png" />
-  @await RenderSectionAsync("Styles", required: false)
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z63R74F5K2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z63R74F5K2');
+  </script>
+
 </head>
 
 
 <body>
+  <div class="cinta-cyan">
+
+  </div>
   <header>
     <nav id="navbar" class="navbar navbar-expand-sm navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -35,15 +48,21 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          @if(User.Identity.IsAuthenticated){
-            <li class="nav-item">
-            <a class="enlace" asp-controller="Autentificacion" asp-action="Logout">Cerrar sesion</a>
+          <li class="nav-item">
+            <a class="enlace" asp-controller="Home" asp-action="Index">Inicio</a>
           </li>
-          }else{
-            <li class="nav-item">
-              <a class="enlace" asp-controller="Home" asp-action="Index">Inicio</a>
-            </li>
-          }
+          <li class="nav-item">
+            <a class="enlace" asp-controller="Cobertura" asp-action="Index">Cobertura</a>
+          </li>
+          <li class="nav-item">
+            <a class="enlace" href="#">Sorteos</a>
+          </li>
+          <li class="nav-item">
+            <a class="enlace" asp-controller="Autentificacion" asp-action="IniciarSesion">Iniciar Sesion</a>
+          </li>
+          <li class="nav-item">
+            <a class="enlace" asp-controller="Autentificacion" asp-action="Registrarse">Registrarse</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -53,6 +72,10 @@
 
   <main role="main">
     @RenderBody()
+    <a href="https://wa.me/+51991471172?text=Estimados%20señores%20de%20JDTelecomunicaciones,%0A%0AMe%20gustaría%20obtener%20más%20información%20acerca%20de%20los%20diferentes%20planes%20y%20paquetes%20que%20ofrecen,%20así%20como%20de%20los%20costos%20asociados%20a%20cada%20uno%20de%20ellos.%20Además,%20me%20interesa%20conocer%20los%20detalles%20técnicos,%20tales%20como%20la%20velocidad%20de%20conexión,%20el%20tipo%20de%20tecnología%20que%20utilizan%20y%20si%20ofrecen%20servicios%20de%20soporte%20técnico.%0A%0AAgradezco%20de%20antemano%20su%20atención%20y%20quedo%20a%20la%20espera%20de%20su%20respuesta%20para%20poder%20tomar%20una%20decisión%20informada%20sobre%20mi%20conexión%20a%20internet.%0A%0ASaludos%20cordiales."
+      target="_blank" class="whatsapp-button">
+      <img src="/img/wsp.png" alt="WhatsApp" />
+    </a>
   </main>
 
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -60,7 +83,10 @@
 
   <script src="~/js/site.js" asp-append-version="true"></script>
   <script src="~/js/index.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   @await RenderSectionAsync("Scripts", required: false)
 </body>
 
-</html>
+</html> 

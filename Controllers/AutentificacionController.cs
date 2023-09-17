@@ -42,8 +42,6 @@ namespace JDTelecomunicaciones.Controllers
             if(user != null){
                 Console.WriteLine("Se encontro un usuario");
 
-                //
-
                 var claims = new List<Claim>{
                     new Claim(ClaimTypes.Name, username),
                     new Claim(ClaimTypes.Role,  user.rol_usuario.ToString()),
@@ -51,7 +49,8 @@ namespace JDTelecomunicaciones.Controllers
                     
                 };
                 Console.WriteLine(username+" "+user.rol_usuario.ToString()+" "+user.id_usuario.ToString());
-                //
+               
+
                 var claimsIdentity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,new ClaimsPrincipal(claimsIdentity));
                 Console.WriteLine(claims[1].ToString());
@@ -63,20 +62,21 @@ namespace JDTelecomunicaciones.Controllers
                     case 'A': 
                         return RedirectToAction("Index","Admin",new {userId=user.id_usuario,username=username,userRol=user.rol_usuario});                  
                     case 'C':
-                        return RedirectToAction("IndexUsuario","Usuario");                   
+                        return RedirectToAction("ServicioTecnico","Cliente");                   
                     case 'T':
-                        return RedirectToAction("Index","Repartidor");
+                        return RedirectToAction("Index","Tecnico");
                     default:
                         return RedirectToAction("Error","Home");                        
                 }
             }
-            
-            
-
             return View("IniciarSesion");
         }
 
-
+        [Route("/Logout")]
+        public async Task<IActionResult> Logout(){
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index","Home");
+        }
 
         [HttpGet("Registrarse")]
         public IActionResult Registrarse()

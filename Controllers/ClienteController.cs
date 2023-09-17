@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using JDTelecomunicaciones.Data;
 using JDTelecomunicaciones.Models;
 using JDTelecomunicaciones.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sprache;
@@ -27,12 +28,12 @@ namespace JDTelecomunicaciones.Controllers
             _usuarioService = usuarioService;
             _context = context;
         }
-
+        [Authorize(Roles ="C")]
         public IActionResult Index()
         {
             return View();
         }
-
+        [Authorize(Roles ="C")]
         [HttpGet("ServicioTecnico")]
         public IActionResult ServicioTecnico()
         {
@@ -42,7 +43,7 @@ namespace JDTelecomunicaciones.Controllers
             }
             return View("ServicioTecnico",tickets.Result);
         }
-
+        [Authorize(Roles ="C")]
         [HttpPost("EnviarTicket")]
         public async Task<IActionResult> EnviarTicket(string tipoProblematica,string descripcion){
             DateTime fechaActual = DateTime.Today;
