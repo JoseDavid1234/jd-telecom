@@ -60,7 +60,11 @@ namespace JDTelecomunicaciones.Controllers
             return RedirectToAction("ServicioTecnico");
         }
 
-
+        [Authorize(Roles ="C")]
+        public IActionResult RecibosPagados()
+        {
+            return View("RecibosPagados");
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
