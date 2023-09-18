@@ -1,5 +1,38 @@
+@model List<JDTelecomunicaciones.Models.Recibos>
 @{
-    Layout = "~/Views/Shared/_LayoutClientes.cshtml"; 
+   Layout = "~/Views/Shared/_LayoutCliente.cshtml"; 
 }
 
-<h1>Hola mundo Gian Pruebas 2 :D</h1>
+<section>
+    <section>
+        <form asp-controller="Cliente" asp-action="">
+            <select name="mes">
+                <option>Enero</option>
+                <option>Febrero</option>
+                <option>Marzo</option>
+                <option>Abril</option>
+                <option>Mayo</option>
+                <option>Junio</option>
+                <option>Julio</option>
+                <option>Agosto</option>
+                <option>Septiembre</option>
+                <option>Octubre</option>
+                <option>Noviembre</option>
+                <option>Diciembre</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
+        <section>
+            @foreach(var item in Model){
+                <div>
+                    <label>@item.idRecibo</label>
+                    <label>@item.plan_recibo</label>
+                    <label>@item.mes_recibo</label>
+                    <label>@item.fecha_vencimiento</label>
+                    <label>@item.monto_recibo</label>
+                    <label>@item.estado_recibo</label>
+                </div>
+            }
+        </section>
+    </section>
+</section>

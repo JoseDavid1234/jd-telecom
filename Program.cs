@@ -26,6 +26,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<TicketServiceImplement>();
 builder.Services.AddScoped<UsuarioServiceImplement>();
 builder.Services.AddScoped<PromocionServiceImplement>();
+builder.Services.AddScoped<ReciboServiceImplement>();
 //builder.Services.AddScoped<PersonaServiceImplement>();
 //builder.Services.AddScoped<ProductoServiceImplement>();
 //builder.Services.AddScoped<CategoriaServiceImplement>();

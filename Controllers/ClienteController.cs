@@ -8,22 +8,27 @@ using JDTelecomunicaciones.Models;
 using JDTelecomunicaciones.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Sprache;
 
 namespace JDTelecomunicaciones.Controllers
 {
     [Route("[controller]")]
-    public class ClienteController : Controller
+    public class ClienteController : Controller, IHostedService
     {
 
         private readonly TicketServiceImplement _ticketService;
         private readonly UsuarioServiceImplement _usuarioService;
+        private readonly ReciboServiceImplement _reciboService;
+        private readonly ApplicationDbContext _context;
 
-        public ClienteController(TicketServiceImplement ticketService,UsuarioServiceImplement usuarioService)
+        public ClienteController(TicketServiceImplement ticketService,UsuarioServiceImplement usuarioService,ReciboServiceImplement reciboService,ApplicationDbContext context)
         {
             _ticketService = ticketService;
             _usuarioService = usuarioService;
+            _reciboService = reciboService;
+            _context = context;
         }
         [Authorize(Roles ="C")]
         public IActionResult Index()
@@ -61,9 +66,27 @@ namespace JDTelecomunicaciones.Controllers
         }
 
         [Authorize(Roles ="C")]
-        public IActionResult RecibosPagados()
+        [HttpGet("RecibosPagados")]
+        public async Task<IActionResult> RecibosPagados()
         {
-            return View("RecibosPagados");
+            var idUserClaim = User.FindFirst("idUser").Value;
+            if(idUserClaim != null){
+                int idUser = int.Parse(idUserClaim);
+                var recibos = await _context.DB_Recibos.Where(r=> r.usuario.id_usuario == idUser).ToListAsync();
+                //await GenerarRecibo();
+                return View("RecibosPagados",recibos);
+
+            }else{
+                return View("Error");
+            }
+        }
+
+        [Authorize(Roles ="C")]
+        [HttpPost]
+        public async Task<IActionResult> RecibosPagadosPorMes(int userId,string mes)
+        {
+            var recibos = await _context.DB_Recibos.Where(recibos=>recibos.mes_recibo == mes && recibos.usuario.id_usuario==userId).ToListAsync();
+            return View("RecibosPagados",recibos);
         }
 
 
@@ -71,6 +94,32 @@ namespace JDTelecomunicaciones.Controllers
         public IActionResult Error()
         {
             return View("Error!");
+        }
+
+        public Task StartAsync(CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task GenerarRecibo(){
+            DateTime fechaActual = DateTime.Now;
+            DateTime fechaVencimiento = new DateTime(fechaActual.Year, fechaActual.Month, 30);
+            string nombreMes = fechaActual.ToString("MMMM");
+            var idUserClaim = User.FindFirst("idUser").Value;
+            int idUser = int.Parse(idUserClaim);
+            var miUsuario = await _usuarioService.FindUserById(idUser);
+
+
+            var recibo = new Recibos{plan_recibo="JD_BASICO",mes_recibo=nombreMes,fecha_vencimiento=fechaVencimiento.ToString("d/MM/yyyy"),monto_recibo=30.00m,estado_recibo="PENDIENTE",usuario = miUsuario};
+
+            await _reciboService.AddVoucher(recibo);
+
+        }
+
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
         }
     }
 }

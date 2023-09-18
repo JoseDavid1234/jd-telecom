@@ -32,6 +32,15 @@ namespace JDTelecomunicaciones.Controllers
         {
             return View("Promociones");
         }
+        [HttpPost]
+        public IActionResult AñadirPromocion(){
+
+            
+
+
+            return RedirectToAction("Promociones");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

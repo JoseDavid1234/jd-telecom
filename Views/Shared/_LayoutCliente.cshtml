@@ -39,19 +39,19 @@
       </div>
       <div class="movileNavBar">
         <div class="movileNavBar_optionsHandler">
-          <a href="#" class="optionsHandler_optionsMobile">
+          <a asp-controller="Cliente" asp-action="Index" class="optionsHandler_optionsMobile">
             <img src="~/img/HomeIconBlue.svg"/>
             <label>Inicio</label>
           </a>
-          <a class="optionsHandler_optionsMobile">
+          <a asp-controller="Cliente" asp-action="MisPlanes" class="optionsHandler_optionsMobile">
             <img src="~/img/ServiciosIconBlue.svg"/>
             <label>Mis Planes</label>
           </a>
-          <a class="optionsHandler_optionsMobile">
+          <a asp-controller="Cliente" asp-action="RecibosPagados" class="optionsHandler_optionsMobile">
             <img src="~/img/TransactionsIconBlue.svg"/>
             <label>Transacciones</label>
           </a>
-          <a class="optionsHandler_optionsMobile">
+          <a asp-controller="Cliente" asp-action="ServicioTecnico" class="optionsHandler_optionsMobile">
             <img src="~/img/TechServiceIconBlue.svg"/>
             <label>Servicio Tecnico</label>
           </a>
@@ -64,22 +64,22 @@
   <main role="main">
     <section class="SideBarSection">
       <div class="SideBarSection_optionsHandler">
-        <div class="optionsHandler_option">
+        <a asp-controller="Cliente" asp-action="Index" class="optionsHandler_option">
           <img src="~/img/HomeIcon.svg"/>
           <label>Inicio</label>
-        </div>
-        <div  class="optionsHandler_option">
+        </a>
+        <a asp-controller="Cliente" asp-action="MisPlanes"  class="optionsHandler_option">
           <img src="~/img/ServiciosIcon.svg"/>
           <label>Mis Planes</label>
-        </div>
-        <div class="optionsHandler_option">
+        </a>
+        <a asp-controller="Cliente" asp-action="RecibosPagados" class="optionsHandler_option">
           <img src="~/img/TransactionsIcon.svg"/>
           <label>Transacciones</label>
-        </div>
-        <div class="optionsHandler_option">
+        </a>
+        <a asp-controller="Cliente" asp-action="ServicioTecnico" class="optionsHandler_option">
           <img src="~/img/TechServiceIcon.svg"/>
           <label>Servicio Tecnico</label>
-        </div>
+        </a>
       </div>
     </section>
     @RenderBody()
