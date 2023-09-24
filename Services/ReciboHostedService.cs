@@ -10,6 +10,7 @@ namespace JDTelecomunicaciones.Services
 {
     public class ReciboHostedService : IHostedService
     {
+        bool voucherGenerated = false;
         private System.Threading.Timer? _timer2;
         //private readonly ReciboServiceImplement _recibosService;
         //private readonly ServicesFactory _serviceFactory;
@@ -42,9 +43,14 @@ namespace JDTelecomunicaciones.Services
             DateTime fechaActual = DateTime.Now;
             DateTime fechaGeneracionRecibo = new DateTime(fechaActual.Year,fechaActual.Month,24);;
             DateTime fechaVencimiento = new DateTime(fechaActual.Year, fechaActual.Month, 30);
+            //bool voucherGenerated = false;
             string nombreMes = fechaActual.ToString("MMMM");
             
-            if(fechaActual >= fechaGeneracionRecibo){
+            if(voucherGenerated == true && fechaGeneracionRecibo.AddMonths(1) <= fechaActual){
+                voucherGenerated = false;
+            }
+            
+            if(fechaActual >= fechaGeneracionRecibo && voucherGenerated == false){
                 using (var scope = _serviceProvider.CreateScope()){
                     var _reciboService = scope.ServiceProvider.GetRequiredService<ReciboServiceImplement>();
                     var _usuarioService = scope.ServiceProvider.GetRequiredService<UsuarioServiceImplement>();
@@ -58,6 +64,8 @@ namespace JDTelecomunicaciones.Services
 
                                         await _reciboService.AddVoucher(recibo);
                                         Console.WriteLine("SE AÑADIO EL RECIBO AL USUARIO : " + usuario.nombre_usuario + " " + usuario.id_usuario);
+                                        voucherGenerated = true;
+                                        Console.WriteLine("SIGUIENTE FECHA PARA GENERAR RECIBOS "+ fechaGeneracionRecibo.AddMonths(1) ); 
                                     }
                             }
 
