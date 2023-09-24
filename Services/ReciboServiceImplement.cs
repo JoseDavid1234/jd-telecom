@@ -1,15 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using JDTelecomunicaciones.Data;
 using JDTelecomunicaciones.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace JDTelecomunicaciones.Services
 {
     public class ReciboServiceImplement : IRecibosService
     {
-    
+        
+        private Timer? _timer;
+        private System.Threading.Timer? _timer2;
         private readonly ApplicationDbContext _context;
         public ReciboServiceImplement(ApplicationDbContext context){
             _context = context;
@@ -33,9 +38,10 @@ namespace JDTelecomunicaciones.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<Recibos>> GetAllMonthlyUserVouchers(int userId, string mes)
+        public async Task<List<Recibos>> GetAllMonthlyUserVouchers(int userId, string mes)
         {
-            throw new NotImplementedException();
+            var recibos = await _context.DB_Recibos.Include(r=>r.usuario).ToListAsync();
+            return recibos;
         }
 
         public Task<List<Recibos>> GetAllUserVouchers(int userId)

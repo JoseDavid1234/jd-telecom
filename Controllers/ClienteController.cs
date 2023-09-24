@@ -15,19 +15,22 @@ using Sprache;
 namespace JDTelecomunicaciones.Controllers
 {
     [Route("[controller]")]
-    public class ClienteController : Controller, IHostedService
+    public class ClienteController : Controller
     {
 
         private readonly TicketServiceImplement _ticketService;
         private readonly UsuarioServiceImplement _usuarioService;
         private readonly ReciboServiceImplement _reciboService;
         private readonly ApplicationDbContext _context;
+        private Timer _timer;
+
 
         public ClienteController(TicketServiceImplement ticketService,UsuarioServiceImplement usuarioService,ReciboServiceImplement reciboService,ApplicationDbContext context)
         {
             _ticketService = ticketService;
             _usuarioService = usuarioService;
             _reciboService = reciboService;
+            
             _context = context;
         }
         [Authorize(Roles ="C")]
@@ -95,31 +98,47 @@ namespace JDTelecomunicaciones.Controllers
         {
             return View("Error!");
         }
-
+        /*
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            //TimeSpan.FromDays(1)
+            _timer = new Timer(async state=>{ await GenerarRecibo(state);}, null, TimeSpan.Zero, TimeSpan.FromMinutes(1));
+            
+            return Task.CompletedTask;
+
         }
 
-        private async Task GenerarRecibo(){
-            DateTime fechaActual = DateTime.Now;
-            DateTime fechaVencimiento = new DateTime(fechaActual.Year, fechaActual.Month, 30);
-            string nombreMes = fechaActual.ToString("MMMM");
-            var idUserClaim = User.FindFirst("idUser").Value;
-            int idUser = int.Parse(idUserClaim);
-            var miUsuario = await _usuarioService.FindUserById(idUser);
+        private async Task GenerarRecibo(object state){
+            try{
+
+                Console.WriteLine("SE EJECUTO GENERAR RECIBO");
+                DateTime fechaActual = DateTime.Now;
+
+                    DateTime fechaVencimiento = new DateTime(fechaActual.Year, fechaActual.Month, 30);
+                    string nombreMes = fechaActual.ToString("MMMM");
+                    var idUserClaim = User.FindFirst("idUser").Value;
+                    int idUser = int.Parse(idUserClaim);
+                    var miUsuario = await _usuarioService.FindUserById(idUser);
 
 
-            var recibo = new Recibos{plan_recibo="JD_BASICO",mes_recibo=nombreMes,fecha_vencimiento=fechaVencimiento.ToString("d/MM/yyyy"),monto_recibo=30.00m,estado_recibo="PENDIENTE",usuario = miUsuario};
+                    var recibo = new Recibos{plan_recibo="JD_BASICO",mes_recibo=nombreMes,fecha_vencimiento=fechaVencimiento.ToString("d/MM/yyyy"),monto_recibo=30.00m,estado_recibo="PENDIENTE",usuario = miUsuario};
 
-            await _reciboService.AddVoucher(recibo);
+                    await _reciboService.AddVoucher(recibo);
+            }catch(Exception e){
+                Console.WriteLine("ERROR: " + e.Message);
+                
+            }
 
         }
 
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            _timer?.Change(Timeout.Infinite, 0);
+
+            return Task.CompletedTask;
         }
+
+        */
     }
 }
