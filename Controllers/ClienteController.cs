@@ -75,8 +75,12 @@ namespace JDTelecomunicaciones.Controllers
             var idUserClaim = User.FindFirst("idUser").Value;
             if(idUserClaim != null){
                 int idUser = int.Parse(idUserClaim);
-                var recibos = await _context.DB_Recibos.Where(r=> r.usuario.id_usuario == idUser).ToListAsync();
-                //await GenerarRecibo();
+ 
+                var recibosPagados = await _reciboService.GetAllCompletedVouchers(idUser);
+                var recibosPendientes = await _reciboService.GetAllPendingVouchers(idUser);
+
+                var recibos = new DobleLista<Recibos,Recibos>(recibosPagados,recibosPendientes);
+
                 return View("RecibosPagados",recibos);
 
             }else{
@@ -86,10 +90,24 @@ namespace JDTelecomunicaciones.Controllers
 
         [Authorize(Roles ="C")]
         [HttpPost]
-        public async Task<IActionResult> RecibosPagadosPorMes(int userId,string mes)
+        public async Task<IActionResult> RecibosPagadosPorMes(string mes)
         {
-            var recibos = await _context.DB_Recibos.Where(recibos=>recibos.mes_recibo == mes && recibos.usuario.id_usuario==userId).ToListAsync();
-            return View("RecibosPagados",recibos);
+            var idUserClaim = User.FindFirst("idUser").Value;
+            if(idUserClaim != null){
+                int idUser = int.Parse(idUserClaim);
+                Console.WriteLine(mes);
+                var recibosPagados = await _context.DB_Recibos.Include(r=>r.usuario).Where(recibos=>recibos.mes_recibo == mes && recibos.usuario.id_usuario==idUser && recibos.estado_recibo=="PAGADO").ToListAsync();
+                var recibosPendientes = await _reciboService.GetAllPendingVouchers(idUser);
+
+                if(mes == "Todos"){
+                    recibosPagados = await _context.DB_Recibos.Include(r=>r.usuario).Where(recibos=>recibos.usuario.id_usuario==idUser && recibos.estado_recibo=="PAGADO").ToListAsync();
+                }
+
+                var recibos = new DobleLista<Recibos,Recibos>(recibosPagados,recibosPendientes);
+                return View("RecibosPagados",recibos);
+            }
+            Console.WriteLine("No se encontro un usuario");
+            return View("Error");
         }
 
 
@@ -98,47 +116,5 @@ namespace JDTelecomunicaciones.Controllers
         {
             return View("Error!");
         }
-        /*
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            //TimeSpan.FromDays(1)
-            _timer = new Timer(async state=>{ await GenerarRecibo(state);}, null, TimeSpan.Zero, TimeSpan.FromMinutes(1));
-            
-            return Task.CompletedTask;
-
-        }
-
-        private async Task GenerarRecibo(object state){
-            try{
-
-                Console.WriteLine("SE EJECUTO GENERAR RECIBO");
-                DateTime fechaActual = DateTime.Now;
-
-                    DateTime fechaVencimiento = new DateTime(fechaActual.Year, fechaActual.Month, 30);
-                    string nombreMes = fechaActual.ToString("MMMM");
-                    var idUserClaim = User.FindFirst("idUser").Value;
-                    int idUser = int.Parse(idUserClaim);
-                    var miUsuario = await _usuarioService.FindUserById(idUser);
-
-
-                    var recibo = new Recibos{plan_recibo="JD_BASICO",mes_recibo=nombreMes,fecha_vencimiento=fechaVencimiento.ToString("d/MM/yyyy"),monto_recibo=30.00m,estado_recibo="PENDIENTE",usuario = miUsuario};
-
-                    await _reciboService.AddVoucher(recibo);
-            }catch(Exception e){
-                Console.WriteLine("ERROR: " + e.Message);
-                
-            }
-
-        }
-
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            _timer?.Change(Timeout.Infinite, 0);
-
-            return Task.CompletedTask;
-        }
-
-        */
     }
 }

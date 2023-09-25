@@ -41,8 +41,8 @@ namespace JDTelecomunicaciones.Services
 
             Console.WriteLine("SE EJECUTO GENERAR RECIBO");
             DateTime fechaActual = DateTime.Now;
-            DateTime fechaGeneracionRecibo = new DateTime(fechaActual.Year,fechaActual.Month,24);;
-            DateTime fechaVencimiento = new DateTime(fechaActual.Year, fechaActual.Month, 30);
+            DateTime fechaGeneracionRecibo = new(fechaActual.Year,fechaActual.Month,25);;
+            DateTime fechaVencimiento = new(fechaActual.Year, fechaActual.Month, 30);
             //bool voucherGenerated = false;
             string nombreMes = fechaActual.ToString("MMMM");
             

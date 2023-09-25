@@ -1,0 +1,96 @@
+.MainSection{
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.RecibosPagadosSection{
+    display: flex;
+    flex-flow: column;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.RecibosPagadosSection_contenedorRecibos{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+}
+
+.RecibosPagadosSection_contenedorRecibos div{
+    border-radius: 5px;
+    background: #0061FF;
+    display: flex;
+    width: 95%;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
+.RecibosPagadosSection h1{
+    color: #0061FF;
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.RecibosPagadosSection form{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+}
+
+form select{
+    width: 50%;
+}
+
+.RecibosPendientesSection{
+    display: flex;
+    flex-flow: column;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 25vw;
+    max-width: 350px;
+    gap: 10px;
+}
+.RecibosPendientesSection h1{
+    color: #0061FF;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.RecibosPendientesSection span{
+    color: #000;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.RecibosPendientesSection_contenedorRecibos{
+    background: #F5F5F5;
+    box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.RecibosPendientesSection_contenedorRecibos div{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-bottom: 1px solid #0061FF;
+}

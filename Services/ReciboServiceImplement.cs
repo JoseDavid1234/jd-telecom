@@ -44,9 +44,22 @@ namespace JDTelecomunicaciones.Services
             return recibos;
         }
 
-        public Task<List<Recibos>> GetAllUserVouchers(int userId)
+        public async Task<List<Recibos>> GetAllUserVouchers(int userId)
         {
-            throw new NotImplementedException();
+            var recibos = await _context.DB_Recibos.Include(r=>r.usuario).Where(r=>r.usuario.id_usuario == userId).ToListAsync();
+            return recibos;
+        }
+
+        public async Task<List<Recibos>> GetAllCompletedVouchers(int userId)
+        {
+            var recibos = await _context.DB_Recibos.Include(r=>r.usuario).Where(r=>r.usuario.id_usuario == userId && r.estado_recibo == "PAGADO").ToListAsync();
+            return recibos;
+        }
+
+        public async Task<List<Recibos>> GetAllPendingVouchers(int userId)
+        {
+            var recibos = await _context.DB_Recibos.Include(r=>r.usuario).Where(r=>r.usuario.id_usuario == userId && r.estado_recibo == "PENDIENTE").ToListAsync();
+            return recibos;
         }
 
         public Recibos GetVoucherById(int voucherId)

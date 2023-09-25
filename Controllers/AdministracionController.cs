@@ -18,25 +18,26 @@ namespace JDTelecomunicaciones.Controllers
             _logger = logger;
         }
 
+        [HttpGet("Index")]
         public IActionResult Index()
         {
-            return View();
+            Console.WriteLine("INDEX ADMIN");
+            return View("Index");
         }
 
+        [HttpGet("ListaClientes")]
         public IActionResult ListaClientes()
         {
             return View("ListaClientes");
         }
 
+        [HttpGet("Promociones")]
         public IActionResult Promociones()
         {
             return View("Promociones");
         }
         [HttpPost]
         public IActionResult AñadirPromocion(){
-
-            
-
 
             return RedirectToAction("Promociones");
         }
