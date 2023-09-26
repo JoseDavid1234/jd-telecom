@@ -60,7 +60,7 @@ namespace JDTelecomunicaciones.Controllers
 
                 switch(user.rol_usuario){
                     case 'A': 
-                        return RedirectToAction("Index","Admin",new {userId=user.id_usuario,username=username,userRol=user.rol_usuario});                  
+                        return RedirectToAction("Index","Administracion");                  
                     case 'C':
                         return RedirectToAction("ServicioTecnico","Cliente");                   
                     case 'T':
@@ -106,10 +106,6 @@ namespace JDTelecomunicaciones.Controllers
 
 
         }
-
-
-
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

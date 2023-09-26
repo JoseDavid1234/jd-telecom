@@ -1,5 +1,73 @@
+@model JDTelecomunicaciones.Models.DobleLista<Recibos,Recibos>
 @{
-    Layout = "~/Views/Shared/_LayoutClientes.cshtml"; 
+   Layout = "~/Views/Shared/_LayoutCliente.cshtml"; 
+   var recibosPagados = Model.ModelosT.ToList();
+   var recibosPendientes = Model.ModelosS.ToList();
 }
 
-<h1>Hola mundo Gian Pruebas 2 :D</h1>
+@section Styles{
+    <link rel="stylesheet" href="~/css/recibosPagados.css" asp-append-version="true" />
+}
+
+@section Scripts{
+
+}
+
+<section class="MainSection">
+    <section class="RecibosPagadosSection">
+        <h1>RECIBOS PAGADOS</h1>
+        <form asp-controller="Cliente" asp-action="RecibosPagadosPorMes">
+            <select name="mes">
+                <option value="Todos">Todos</option>
+                <option value="Enero">Enero</option>
+                <option value="Febrero">Febrero</option>
+                <option value="Marzo">Marzo</option>
+                <option value="Abril">Abril</option>
+                <option value="Mayo">Mayo</option>
+                <option value="Junio">Junio</option>
+                <option value="Julio">Julio</option>
+                <option value="Agosto">Agosto</option>
+                <option value="Setiembre">Setiembre</option>
+                <option value="Octubre">Octubre</option>
+                <option value="Noviembre">Noviembre</option>
+                <option value="Diciembre">Diciembre</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
+        <section class="RecibosPagadosSection_contenedorRecibos">
+            @if(recibosPagados.Count() > 0){
+                @foreach(var item in recibosPagados){
+                    <div>
+                        <label>Plan @item.plan_recibo</label>
+                        <label>JDK-@item.idRecibo</label>
+                        <label>@item.mes_recibo</label>
+                        <label>@item.fecha_vencimiento</label>
+                        <label>S/@item.monto_recibo</label>
+                    </div>
+                }
+            }else{
+                <h1>No se encontraron recibos pagados</h1>
+            }
+        </section>
+    </section>
+    <aside class="RecibosPendientesSection">
+        @if(recibosPendientes.Count() > 0){
+            <h1>¡TIENES @recibosPendientes.Count() RECIBO(S) PENDIENTE(S)!</h1>
+            <span>Recuerda pagar tus recibos a tiempo para acceder a nuestras promociones</span>
+            
+            <div class="RecibosPendientesSection_contenedorRecibos">
+                @foreach(var item in recibosPendientes){
+                    <div>
+                        <label>@item.mes_recibo</label>
+                        <label>@item.fecha_vencimiento</label>
+                        <label><strong>S/@item.monto_recibo</strong></label>
+                    </div>
+                }
+            </div>
+        }else{
+            <h1>¡ESTAS AL DIA EN TUS RECIBOS!</h1>
+            <span>Si eres un buen pagador puedes acceder a nuestros descuentos</span>
+            <img src="~/img/Frame.svg"/>
+        }
+    </aside>
+</section>

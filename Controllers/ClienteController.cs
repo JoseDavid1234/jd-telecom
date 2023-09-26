@@ -8,6 +8,7 @@ using JDTelecomunicaciones.Models;
 using JDTelecomunicaciones.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Sprache;
 
@@ -19,11 +20,18 @@ namespace JDTelecomunicaciones.Controllers
 
         private readonly TicketServiceImplement _ticketService;
         private readonly UsuarioServiceImplement _usuarioService;
+        private readonly ReciboServiceImplement _reciboService;
+        private readonly ApplicationDbContext _context;
+        private Timer _timer;
 
-        public ClienteController(TicketServiceImplement ticketService,UsuarioServiceImplement usuarioService)
+
+        public ClienteController(TicketServiceImplement ticketService,UsuarioServiceImplement usuarioService,ReciboServiceImplement reciboService,ApplicationDbContext context)
         {
             _ticketService = ticketService;
             _usuarioService = usuarioService;
+            _reciboService = reciboService;
+            
+            _context = context;
         }
         [Authorize(Roles ="C")]
         public IActionResult Index()
@@ -61,9 +69,45 @@ namespace JDTelecomunicaciones.Controllers
         }
 
         [Authorize(Roles ="C")]
-        public IActionResult RecibosPagados()
+        [HttpGet("RecibosPagados")]
+        public async Task<IActionResult> RecibosPagados()
         {
-            return View("RecibosPagados");
+            var idUserClaim = User.FindFirst("idUser").Value;
+            if(idUserClaim != null){
+                int idUser = int.Parse(idUserClaim);
+ 
+                var recibosPagados = await _reciboService.GetAllCompletedVouchers(idUser);
+                var recibosPendientes = await _reciboService.GetAllPendingVouchers(idUser);
+
+                var recibos = new DobleLista<Recibos,Recibos>(recibosPagados,recibosPendientes);
+
+                return View("RecibosPagados",recibos);
+
+            }else{
+                return View("Error");
+            }
+        }
+
+        [Authorize(Roles ="C")]
+        [HttpPost]
+        public async Task<IActionResult> RecibosPagadosPorMes(string mes)
+        {
+            var idUserClaim = User.FindFirst("idUser").Value;
+            if(idUserClaim != null){
+                int idUser = int.Parse(idUserClaim);
+                Console.WriteLine(mes);
+                var recibosPagados = await _context.DB_Recibos.Include(r=>r.usuario).Where(recibos=>recibos.mes_recibo == mes && recibos.usuario.id_usuario==idUser && recibos.estado_recibo=="PAGADO").ToListAsync();
+                var recibosPendientes = await _reciboService.GetAllPendingVouchers(idUser);
+
+                if(mes == "Todos"){
+                    recibosPagados = await _context.DB_Recibos.Include(r=>r.usuario).Where(recibos=>recibos.usuario.id_usuario==idUser && recibos.estado_recibo=="PAGADO").ToListAsync();
+                }
+
+                var recibos = new DobleLista<Recibos,Recibos>(recibosPagados,recibosPendientes);
+                return View("RecibosPagados",recibos);
+            }
+            Console.WriteLine("No se encontro un usuario");
+            return View("Error");
         }
 
 

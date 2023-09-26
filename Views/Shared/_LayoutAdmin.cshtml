@@ -65,21 +65,17 @@
   <main role="main">
     <section class="SideBarSection">
       <div class="SideBarSection_optionsHandler">
-        <a asp-controller="Cliente" asp-action="Index" class="optionsHandler_option">
+        <a asp-controller="Administracion" asp-action="Index" class="optionsHandler_option">
           <img src="~/img/HomeIcon.svg"/>
           <label>Inicio</label>
         </a>
-        <a asp-controller="Cliente" asp-action="MisPlanes"  class="optionsHandler_option">
+        <a asp-controller="Administracion" asp-action="ListaClientes"  class="optionsHandler_option">
           <img src="~/img/ServiciosIcon.svg"/>
-          <label>Mis Planes</label>
+          <label>Clientes</label>
         </a>
-        <a asp-controller="Cliente" asp-action="RecibosPagados" class="optionsHandler_option">
+        <a asp-controller="Administracion" asp-action="Promociones" class="optionsHandler_option">
           <img src="~/img/TransactionsIcon.svg"/>
-          <label>Transacciones</label>
-        </a>
-        <a asp-controller="Cliente" asp-action="ServicioTecnico" class="optionsHandler_option">
-          <img src="~/img/TechServiceIcon.svg"/>
-          <label>Servicio Tecnico</label>
+          <label>Manejo de Promociones</label>
         </a>
       </div>
     </section>
