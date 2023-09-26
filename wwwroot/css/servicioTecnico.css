@@ -3,21 +3,142 @@
     width: 50px;
     height: 50px;
 }*/
-
-.whatsappButton{
-    display: inline-flex;
+.card{
+    background-color: #fff;
+    margin: 0 10px; /* Puedes ajustar el margen según tus necesidades */
+    border: 1px solid #ccc; /* Puedes agregar un borde para visualizar mejor los elementos */
     padding: 10px;
-    align-items: center;
-    gap: 10px;
     border-radius: 10px;
-    background: #25D366;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+}
+.grande {
+  flex: 2; /* Este card es dos veces más grande que el segundo */
 }
 
+.pequeño {
+  flex: 1; /* Este card es más pequeño */
+}
+.contenedorServ{
+  display: flex;
+  margin-top: 10px;
+}
+.whatsappButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #25D366;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  width: 350px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.whatsappButton img {
+  margin-left: auto; /* Empuja la imagen hacia la derecha */
+}
+
+/* Puedes ajustar la altura según tus necesidades */
+.whatsappButton span {
+  flex: 1; /* El texto ocupará el espacio disponible */
+}
 .whatsappButton img{
     width: 50px;
     height: 50px;
+}
+
+section{
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+  }
+  .TechServiceSection{
+    margin-bottom: 10px;
+  }
+  form div {
+    margin-bottom: 10px; /* Agrega espacio entre cada grupo de etiqueta e input */
+  }
+  
+  
+  form button {
+    background-color: #0061FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 300px;
+    font-weight: bold;
+    font-size: 99%;
+  }
+  button.custome-style {
+    font-family: 'Roboto'sans-serif;
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  .contenedor {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Agrega espacio entre el contenedor y el siguiente elemento */
+  }
+  
+  input {
+    border: none;
+    border-radius: 16px;
+    box-shadow: inset 0px 6px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    height: 30px;
+    padding: 10px;
+    font-size: 15px;
+    color:#878787;
+    background-color:#EBEBEB;
+  }
+  .form-container {
+    display: flex; /* Establece el contenedor como un flex container */
+   
+}
+
+.form-group {
+    flex-basis: 45%; /* Establece el ancho de cada grupo */
+    
+}
+
+.form-group label {
+    display: block; /* Hace que las etiquetas ocupen todo el ancho disponible */
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
+}
+h1{
+  color: #0061FF;
+}
+select{
+  border: none;
+  border-radius: 13px;
+  box-shadow: inset 0px 6px 10px rgba(0, 0, 0, 0.2);
+  width: 320px;
+  height: 45px;
+  padding: 10px;
+  font-size: 15px;
+  background-color:#EBEBEB;
+} 
+form textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 13px;
+  box-shadow: inset 0px 6px 10px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  background-color:#EBEBEB;
+  font-family: 'Roboto', sans-serif;
+ 
+}
+form span{
+  color: red;
 }
