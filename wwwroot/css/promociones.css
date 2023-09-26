@@ -1,0 +1,102 @@
+.contenedor {
+    display: flex;
+  }
+  
+  .card {
+    flex: 2; /* El primer card es dos veces más grande que el segundo */
+    margin: 0 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  } 
+  .card input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .card select{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+    
+    section{
+      font-family: 'Roboto', sans-serif;
+      margin-bottom: 10px;
+    
+    justify-content: center;
+    align-items: center;
+    }
+    .TechServiceSection{
+      margin-bottom: 10px;
+    }
+    form div {
+      margin-bottom: 10px; /* Agrega espacio entre cada grupo de etiqueta e input */
+    }
+    
+    form button {
+      background-color: #0061FF;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+    }
+    button{
+      text-align: center;
+    }
+    form button:hover {
+      background-color: #0056b3;
+    }
+    .contenedor {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px; /* Agrega espacio entre el contenedor y el siguiente elemento */
+    }
+    
+    input {
+      border: none;
+      border-radius: 16px;
+      box-shadow: inset 0px 6px 10px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      height: 30px;
+      padding: 10px;
+      font-size: 15px;
+      color:#878787;
+      background-color:#EBEBEB;
+    }
+    .form-container {
+      display: flex; /* Establece el contenedor como un flex container */
+      /*justify-content: space-between;  Espacia los elementos flexibles en el contenedor */
+     
+  }
+  
+  .form-group {
+      flex-basis: 25%; /* Establece el ancho de cada grupo */
+      
+  }
+  
+  .form-group label {
+      display: block; /* Hace que las etiquetas ocupen todo el ancho disponible */
+      margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
+  }
+  h1{
+    color: #0061FF;
+    text-align: center;
+    font-size: 40px;
+  }
+  select{
+    border: none;
+    border-radius: 13px;
+    box-shadow: inset 0px 6px 10px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    height: 45px;
+    padding: 10px;
+    font-size: 15px;
+    background-color:#EBEBEB;
+  } 
+  .botonB{
+    text-align: center;
+  }
+  
+  

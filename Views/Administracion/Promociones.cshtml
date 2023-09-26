@@ -1,6 +1,9 @@
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; 
 }
+@section Styles{
+    <link rel="stylesheet" href="~/css/promociones.css" asp-append-version="true" />
+}
 
 <section>
         <h1>CREAR PROMOCIONES</h1>
@@ -20,11 +23,11 @@
                 </div>
                 <div class="card">
                     <label>Imagen de la promocion</label>
-                    <img src="/img/wsp.png" alt="Promcion" />
+                    <img src="~/img/promocionLayer.png" alt="Promcion" />
                 </div>
             </div>
             <div class="botonB">
-                <button>Crear Promocion</button>
+            <button>Crear Promocion</button>
             </div>
         </form>
     </section>
