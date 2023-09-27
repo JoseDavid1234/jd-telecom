@@ -1,12 +1,23 @@
-.contenedor {
+.contenedorProm{
+  background: white;
+  width: 1000px;
+  
+  border-radius: 10px;
+  margin-left: 100px;
+}
+.contenedorCard {
     display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   
   .card {
-    flex: 2; /* El primer card es dos veces más grande que el segundo */
+    flex: 1;
     margin: 0 10px;
-    border: 1px solid #ccc;
-    padding: 10px;
+    padding: 10px; /* Agrega un espacio interno de 10px */
+    flex-direction: column;
+    display: flex;
+    align-items: center;
   } 
   .card input{
     margin-top: 10px;
@@ -16,11 +27,16 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
-    
+  
+  .card img{
+    height: 300px;
+    width: 340px;
+  }
+
     section{
       font-family: 'Roboto', sans-serif;
       margin-bottom: 10px;
-    
+      display: flex;
     justify-content: center;
     align-items: center;
     }
@@ -38,7 +54,9 @@
       padding: 10px 20px;
       border-radius: 10px;
       cursor: pointer;
-      font-family: 'Roboto', sans-serif;
+      
+      margin-top: 80px;
+      margin-bottom: 30px;
     }
     button{
       text-align: center;
@@ -84,6 +102,8 @@
     color: #0061FF;
     text-align: center;
     font-size: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
   select{
     border: none;

@@ -50,22 +50,32 @@
             </form>
             </div>
             <div class="card pequeno">
-                <h1>Historial de tickets</h1>
-                <div>
+                
+                
                     @if(tickets.Count > 0){
-        
+                        <h1>Historial de tickets</h1>
+                        <label>Aqui podras ver el historial de los distintos tickets que enviaste para pedir ayuda.</label>
                         @foreach (var item in tickets)
                         {
                             <div style="display: flex">
+                                <img src="~/img/lupa.png" alt="Lupa" />
                                 <label>@item.id_ticket</label>
                                 <label>@item.tipoProblematica_ticket</label>
-                                <label>@item.status_ticket</label>
+                                @if((item.status_ticket).ToString() == "PENDIENTE"){
+                                    <img src="~/img/pendiente.png" alt="Pendiente" style="background: #FF5A5A" />
+                                
+                                }else if((item.status_ticket).ToString() == "LISTO"){
+                                    <img src="~/img/listo.png" alt="Listo" style="background: #25D366" />
+                                }else{
+                                    <img src="~/img/revision.png" alt="Revisado" style="background: #FFA95A" />
+                                }
                             </div>
                         }
                     }else{
                         <h1>No se encontraron tickets</h1>
+                        <label>Al parecer aun no experimentastes problemas con tu servicio de internet. Igualmente estaremos atentos ante cualquier eventualidad que tengas.</label>
                     }
-                </div>
+                
             </div>
         </div>
         
