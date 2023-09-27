@@ -2,6 +2,7 @@
 using JDTelecomunicaciones.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JDTelecomunicaciones.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230916194630_SecondMigration")]
+    partial class SecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -185,6 +188,10 @@ namespace JDTelecomunicaciones.Migrations
                     b.Property<string>("tipoProblematica_ticket")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("usuario_id")
+                        .HasColumnType("integer")
+                        .HasColumnName("id_usuario");
 
                     b.Property<int>("usuarioid_usuario")
                         .HasColumnType("integer");

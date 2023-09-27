@@ -1,0 +1,13 @@
+@{
+    Layout = "~/Views/Shared/_LayoutAutentificacion.cshtml";
+}
+
+<h1>Login VIEW</h1>
+
+<form asp-action="Login" asp-controller="Autentificacion" method="post">
+    <label>Usuario</label>
+    <input name="username"/>
+    <label>Contraseña</label>
+    <input name="password" type="password"/>
+    <button>Iniciar sesion</button>
+</form>

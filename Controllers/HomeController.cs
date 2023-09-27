@@ -36,7 +36,7 @@ public class HomeController : Controller
   [HttpPost]
   public IActionResult EnviarFormulario(MensajeContacto message)
   {
-    _context.ContactMessages.Add(message);
+    _context.DB_ContactMessages.Add(message);
     _context.SaveChanges();
 
     // Devuelve una respuesta JSON en lugar de una vista

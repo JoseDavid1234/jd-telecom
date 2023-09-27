@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description"
+    content="JD Telecomunicaciones: Te brindamos el mejor servicio de Internet + Cable por FIBRA ÓPTICA, estamos en Cieneguilla y Manchay. Disfruta de INTERNET ILIMITADO." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internet por Fibra Óptica | JD Telecomunicaciones</title>
+  <link rel="stylesheet" href="~/css/layoutCliente.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="./img/jd-logo-azul.png" rel="icon" type="image/png" />
+  @await RenderSectionAsync("Styles", required: false)
+</head>
+
+
+<body>
+  <header>
+    <nav id="navbar" class="navbar">
+      <div class="navbar_options" id="navbarNav">
+        <a class="BrandLogo"><img src="~/img/jd-logo-azul.png"/></a>
+        <ul class="navbar-nav">
+          @if(User.Identity.IsAuthenticated){
+            <li class="nav-item">
+            <a class="enlace" asp-controller="Autentificacion" asp-action="Logout">Cerrar sesion</a>
+          </li>
+          }else{
+            <li class="nav-item">
+              <a class="enlace" asp-controller="Home" asp-action="Index">Inicio</a>
+            </li>
+          }
+        </ul>
+      </div>
+      <div class="movileNavBar">
+        <div class="movileNavBar_optionsHandler">
+          <a asp-controller="Cliente" asp-action="Index" class="optionsHandler_optionsMobile">
+            <img src="~/img/HomeIconBlue.svg"/>
+            <label>Inicio</label>
+          </a>
+          <a asp-controller="Cliente" asp-action="MisPlanes" class="optionsHandler_optionsMobile">
+            <img src="~/img/ServiciosIconBlue.svg"/>
+            <label>Mis Planes</label>
+          </a>
+          <a asp-controller="Cliente" asp-action="RecibosPagados" class="optionsHandler_optionsMobile">
+            <img src="~/img/TransactionsIconBlue.svg"/>
+            <label>Transacciones</label>
+          </a>
+          <a asp-controller="Cliente" asp-action="ServicioTecnico" class="optionsHandler_optionsMobile">
+            <img src="~/img/TechServiceIconBlue.svg"/>
+            <label>Servicio Tecnico</label>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <main role="main">
+    <section class="SideBarSection">
+      <div class="SideBarSection_optionsHandler">
+        <a asp-controller="Administracion" asp-action="Index" class="optionsHandler_option">
+          <img src="~/img/HomeIcon.svg"/>
+          <label>Inicio</label>
+        </a>
+        <a asp-controller="Administracion" asp-action="ListaClientes"  class="optionsHandler_option">
+          <img src="~/img/ServiciosIcon.svg"/>
+          <label>Clientes</label>
+        </a>
+        <a asp-controller="Administracion" asp-action="Promociones" class="optionsHandler_option">
+          <img src="~/img/TransactionsIcon.svg"/>
+          <label>Manejo de Promociones</label>
+        </a>
+      </div>
+    </section>
+    @RenderBody()
+  </main>
+  <footer>¡ACCEDE A NUESTROS MEJORES PLANES!</footer>
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="~/js/site.js" asp-append-version="true"></script>
+  <script src="~/js/index.js"></script>
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
