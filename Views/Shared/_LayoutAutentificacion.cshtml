@@ -8,10 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Internet por Fibra Óptica | JD Telecomunicaciones</title>
   <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/css/iniciarSesion.css" />
   <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
   <link rel="stylesheet" href="~/JDTelecomunicaciones.styles.css" asp-append-version="true" />
   <link rel="stylesheet" href="~/css/layout.css" />
   <link rel="stylesheet" href="~/css/index.css" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -32,7 +34,7 @@
 
     gtag('config', 'G-Z63R74F5K2');
   </script>
-
+@await RenderSectionAsync("Styles", required: false)
 </head>
 
 

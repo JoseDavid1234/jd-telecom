@@ -1,0 +1,110 @@
+
+section{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+section div{
+    display: flex;
+}
+.contenedorL{
+    display: flex;
+    width: 65%;
+    height: 70%;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(60, 60, 60, 0.9);
+}
+.card{
+    flex: 1; /* El primer card es dos veces más grande que el segundo */
+    border: 1px solid #ccc;
+    padding: 10px;
+   
+}
+.primero{
+    background: #0061FF;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.contenedorLogo{
+    flex-direction: column;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedorLogo img{
+    border-radius: 50%;
+    background-color: white;
+    width: 100px;
+    margin-bottom: 40px;
+    box-shadow: 0px 4px 8px rgba(60, 60, 60, 0.9);
+}
+.contenedorLogo span{
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    width: 62%;
+    
+}
+.cardH1{
+    color: #0061FF;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 740;
+  }
+  .segundo{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .contenedorI{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+  .contenedorI form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+  .contenedorI input{
+    border-color: #0061FF;
+    border-radius: 16px;
+    width: 90%;
+    
+    padding: 10px;
+    font-size: 15px;
+    color:#878787;
+    background-color:white;
+    margin-bottom: 15px;
+}
+.contenedorI button{
+    background-color: #0061FF;
+    font-weight: bold;
+    width: 130px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 8px rgba(60, 60, 60, 0.6);
+}
+.contenedorI button:hover{
+    box-shadow: 0px 6px 10px rgba(60, 60, 60, 0.7);
+}

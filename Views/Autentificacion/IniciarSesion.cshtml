@@ -2,12 +2,29 @@
     Layout = "~/Views/Shared/_LayoutAutentificacion.cshtml";
 }
 
-<h1>Login VIEW</h1>
+<section>
+<div class="contenedorL">
+      <div class="card primero">
+        <div class="contenedorLogo">
+        <img src="/img/jd-logo-azul.png" alt="logo" />
+        <span>¡EMPIEZA A DISFRUTAR LA MEJOR CONEXIÓN A INTERNET!</span>
+        </div>
+      </div>
+      <div class="card segundo">
+          <div class="contenedorI">
+              <h1 class="cardH1">Iniciar Sesión</h1>
+              <form asp-action="Login" asp-controller="Autentificacion" method="post">
+                  
+                  <input name="username" placeholder="DNI"/>
+                
+                  <input name="password" type="password" placeholder="Contraseña"/>
+                  <button>Acceder</button>
+              </form>
+              
+              
+          </div>
+      </div>
+    </div>
+    </section>
 
-<form asp-action="Login" asp-controller="Autentificacion" method="post">
-    <label>Usuario</label>
-    <input name="username"/>
-    <label>Contraseña</label>
-    <input name="password" type="password"/>
-    <button>Iniciar sesion</button>
-</form>
+ 
